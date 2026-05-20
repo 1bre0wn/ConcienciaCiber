@@ -1,0 +1,14 @@
+# dependencias
+node_modules/
+
+# variables de entorno — NUNCA subir (contienen la API key)
+.env
+.env.local
+.env*.local
+
+# vercel
+.vercel/
+
+# sistema
+.DS_Store
+Thumbs.db
