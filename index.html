@@ -3,7 +3,68 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ConcienciaCiber — Academia de ciberseguridad para empresas</title>
+<title>Concienciación en ciberseguridad para empresas | ConcienciaCiber</title>
+<meta name="description" content="Formación en ciberseguridad y simulación de phishing personalizada para empleados. Píldoras de 3 minutos, informes ENS, NIS2 e ISO 27001 y precio público desde 12 €/empleado/año.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://concienciaciber.es/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="ConcienciaCiber">
+<meta property="og:title" content="Concienciación en ciberseguridad para empresas | ConcienciaCiber">
+<meta property="og:description" content="Formación en ciberseguridad y simulación de phishing personalizada para empleados. Informes ENS, NIS2 e ISO 27001. Precio público desde 12 €/empleado/año.">
+<meta property="og:url" content="https://concienciaciber.es/">
+<meta property="og:image" content="https://concienciaciber.es/assets/dashboard-home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Concienciación en ciberseguridad para empresas | ConcienciaCiber">
+<meta name="twitter:description" content="Formación y simulación de phishing personalizada para empleados. Informes ENS, NIS2 e ISO 27001. Desde 12 €/empleado/año.">
+<meta name="twitter:image" content="https://concienciaciber.es/assets/dashboard-home.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://concienciaciber.es/#org",
+      "name": "ConcienciaCiber",
+      "legalName": "Legitec Ciberseguridad S.L.",
+      "url": "https://concienciaciber.es/",
+      "logo": "https://concienciaciber.es/assets/concienciaciber-logo-claro.png",
+      "email": "eperez@legitec.com",
+      "telephone": "+34 722 462 552",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida de los Rectores, 2-4 bajo",
+        "postalCode": "30100",
+        "addressLocality": "Murcia",
+        "addressRegion": "Región de Murcia",
+        "addressCountry": "ES"
+      },
+      "parentOrganization": { "@type": "Organization", "name": "Legitec", "url": "https://legitec.com/" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://concienciaciber.es/#website",
+      "url": "https://concienciaciber.es/",
+      "name": "ConcienciaCiber",
+      "inLanguage": "es",
+      "publisher": { "@id": "https://concienciaciber.es/#org" }
+    },
+    {
+      "@type": "Service",
+      "name": "Concienciación en ciberseguridad y simulación de phishing para empresas",
+      "serviceType": "Formación y concienciación en ciberseguridad",
+      "provider": { "@id": "https://concienciaciber.es/#org" },
+      "areaServed": { "@type": "Country", "name": "España" },
+      "inLanguage": "es",
+      "offers": [
+        { "@type": "Offer", "name": "Starter Pack", "price": "290", "priceCurrency": "EUR", "description": "Pago único sin permanencia: 3 píldoras formativas, 1 campaña de phishing e informe de resultados" },
+        { "@type": "Offer", "name": "Hasta 100 empleados", "price": "12", "priceCurrency": "EUR", "description": "Por empleado y año: plataforma autogestionada, campañas de phishing e informes de cumplimiento ENS, NIS2 e ISO" },
+        { "@type": "Offer", "name": "Más de 100 empleados", "price": "9", "priceCurrency": "EUR", "description": "Desde 9 € por empleado y año según tramo, con phishing personalizado y consultor dedicado" }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,6 +86,7 @@
     --hero-grad: radial-gradient(1200px 600px at 50% -200px, rgba(245,166,35,0.18), transparent 60%), radial-gradient(800px 400px at 100% 0%, rgba(245,166,35,0.10), transparent 70%);
   }
   html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 88px; }
   body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--fg); transition: background 0.3s, color 0.3s; }
   .mono { font-family: 'JetBrains Mono', monospace; }
 
@@ -125,6 +187,15 @@
   @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .marquee-track { display: flex; animation: slide 40s linear infinite; width: max-content; }
 
+  /* logo marquee (clientes) */
+  .logo-marquee {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .logo-marquee img { object-fit: contain; opacity: 1; }
+  .logo-marquee:hover .marquee-track { animation-play-state: paused; }
+  [data-theme="dark"] .logo-marquee img { filter: grayscale(1) invert(1) brightness(1.6); }
+
   /* testimonial carousel */
   @keyframes testimonialSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   .testimonial-carousel { overflow: hidden; position: relative; }
@@ -223,10 +294,11 @@ const useTheme = () => {
 
 /* ============ NAV ============ */
 const NAV_ITEMS = [
-  { id: 'que-hacemos', label: 'Soluciones' },
-  { id: 'compliance',  label: 'Cumplimiento' },
-  { id: 'precios',     label: 'Precios' },
-  { id: 'testimonios', label: 'Clientes' },
+  { href: '#que-hacemos',  label: 'Servicios' },
+  { href: 'nosotros.html', label: 'Sobre nosotros' },
+  { href: '#compliance',   label: 'Cumplimiento' },
+  { href: '#contacto',     label: 'Contacto' },
+  { href: 'blog.html',     label: 'Blog' },
 ];
 
 const Nav = ({ theme, toggleTheme }) => (
@@ -241,7 +313,7 @@ const Nav = ({ theme, toggleTheme }) => (
       </a>
       <div className="hidden md:flex items-center gap-8">
         {NAV_ITEMS.map(t => (
-          <a key={t.id} href={`#${t.id}`} className="text-sm t-fg-muted hover:t-fg transition-colors" style={{color: 'var(--fg-muted)'}}>{t.label}</a>
+          <a key={t.href} href={t.href} className="text-sm t-fg-muted hover:t-fg transition-colors" style={{color: 'var(--fg-muted)'}}>{t.label}</a>
         ))}
       </div>
       <div className="flex items-center gap-3">
@@ -310,7 +382,7 @@ const Hero = () => (
               <span className="w-2.5 h-2.5 rounded-full" style={{background:'#FF5F57'}}></span>
               <span className="w-2.5 h-2.5 rounded-full" style={{background:'#FEBC2E'}}></span>
               <span className="w-2.5 h-2.5 rounded-full" style={{background:'#28C840'}}></span>
-              <span className="mx-auto text-[11px] mono" style={{color:'var(--fg-soft)'}}>concienciaciber.com / home</span>
+              <span className="mx-auto text-[11px] mono" style={{color:'var(--fg-soft)'}}>concienciaciber.es / home</span>
             </div>
             <img src="assets/dashboard-home.png" alt="Panel ConcienciaCiber" className="w-full block" />
           </div>
@@ -358,15 +430,25 @@ const Hero = () => (
     </div>
 
     {/* logos marquee */}
-    <div className="border-t t-border t-bg-soft overflow-hidden" style={{borderColor:'var(--border)'}}>
-      <div className="max-w-7xl mx-auto px-6 py-7">
-        <div className="text-center text-xs mono tracking-widest mb-5" style={{color:'var(--fg-soft)'}}>CONFÍAN EN NOSOTROS</div>
-        <div className="overflow-hidden">
-          <div className="marquee-track">
-            {[...Array(2)].flatMap((_,k)=>['LEGITEC','TRANVIA DE MURCIA','CEMENTOS LA CRUZ','NAVILENS','VIDAL','ORENES','AMAT','MUFACE','FUNDACIÓN ASPACIA','MONBUS'].map((n,i)=>(
-              <span key={`${k}-${i}`} className="text-xl md:text-2xl font-light tracking-[0.18em] px-10 whitespace-nowrap" style={{color:'var(--fg-soft)'}}>{n}</span>
-            )))}
-          </div>
+    <div className="border-t t-border t-bg-soft overflow-hidden py-8" style={{borderColor:'var(--border)'}}>
+      <div className="text-center text-lg md:text-xl font-bold tracking-tight mb-8">
+        Empresas que han <span style={{color:'var(--amber-strong)'}}>confiado en nosotros</span>
+      </div>
+      <div className="logo-marquee w-full overflow-hidden">
+        <div className="marquee-track items-center">
+          {[...Array(2)].flatMap((_,k)=>[
+            { src: 'uploads/logos/prinex.webp',           alt: 'Prinex' },
+            { src: 'uploads/logos/anekke.png',            alt: 'Anekke' },
+            { src: 'uploads/logos/calconut.png',          alt: 'Calconut' },
+            { src: 'uploads/logos/konery.png',            alt: 'Konery' },
+            { src: 'uploads/logos/vocali.png',            alt: 'Vócali' },
+            { src: 'uploads/logos/amat.png',              alt: 'AMAT' },
+            { src: 'uploads/logos/mesa-del-castillo.png', alt: 'Hospital Mesa del Castillo' },
+            { src: 'uploads/logos/navilens.webp',         alt: 'NaviLens' },
+            { src: 'uploads/logos/stel-order.png',        alt: 'STEL Order' },
+          ].map((l,i)=>(
+            <img key={`${k}-${i}`} src={l.src} alt={l.alt} className="h-12 md:h-14 w-36 md:w-44 mx-6 flex-shrink-0" loading="lazy" />
+          )))}
         </div>
       </div>
     </div>
@@ -658,7 +740,7 @@ const Practica = () => (
               <span className="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold">LM</span>
               <div className="flex-1 min-w-0">
                 <div className="text-sm font-semibold">Factura de tu nómina de abril</div>
-                <div className="text-xs text-gray-500 truncate">Laura Méndez · rrhh@concienciaciber.com · hace 4 min</div>
+                <div className="text-xs text-gray-500 truncate">Laura Méndez · rrhh@concienciaciber.es · hace 4 min</div>
               </div>
             </div>
             <div className="p-5 text-sm text-gray-700 space-y-3">
@@ -758,11 +840,16 @@ const Precios = () => (
   <Section id="precios" tone="white" eyebrow="PLANES"
     title="Un plan para cada necesidad."
     subtitle={<span className="block text-justify">Desde un pack puntual para empezar hasta el programa anual completo, con formación, simulaciones de phishing e informes de cumplimiento. Si solo necesitas una parte, preparamos un presupuesto a medida, y producimos contenido formativo bajo demanda para las necesidades concretas de tu empresa.</span>}>
+    <div className="flex flex-wrap justify-center gap-2 mb-10">
+      {['Precio público','Sin mínimo de licencias','Sin permanencia'].map(t => (
+        <span key={t} className="text-xs font-medium px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800">{t}</span>
+      ))}
+    </div>
     <div className="grid md:grid-cols-3 gap-6">
       {[
         { name: 'Starter Pack', from: true, price: '290€', unit: 'pago único · sin permanencia', note: 'Ideal para probar el servicio', f: ['3 píldoras formativas con test','1 campaña de phishing','Informe de resultados','Acceso al panel de control'], cta: 'Empezar ahora', featured: false },
-        { name: 'Programa Anual', from: true, price: '15€', unit: '/ empleado / año', f: ['Acceso al catálogo completo de píldoras','Campañas de phishing periódicas','Charlas formativas en directo','Informes de cumplimiento (ENS, NIS2, ISO)','Panel multiusuario para tus admins','Soporte prioritario'], cta: 'Solicitar demo', featured: true, badge: 'Más completo' },
-        { name: 'A medida', from: false, price: 'Presupuesto', unit: 'sin compromiso', f: ['Solo phishing, solo formación o todo','Píldoras y simulaciones personalizadas','Clones a medida de vuestros logins','Contenido formativo bajo demanda','Gestión delegada: lo llevamos nosotros','Soporte dedicado'], cta: 'Pedir presupuesto', featured: false },
+        { name: 'Hasta 100 empleados', from: false, price: '12€', unit: '/ empleado / año', f: ['Plataforma propia autogestionada: tú lo controlas todo','Catálogo completo de píldoras con tests y certificados','Campañas de phishing periódicas + 1 personalizada al año','Informes de cumplimiento (ENS, NIS2, ISO)','Charlas formativas en directo','Soporte prioritario en español'], cta: 'Solicitar demo', featured: true, badge: 'Más popular' },
+        { name: 'Más de 100 empleados', from: true, price: '9€', unit: '/ empleado / año', note: 'Tramos: 101–250 → 11€ · 251–500 → 10€ · 501–1.000 → 9€ · +1.000 → a medida', f: ['Todo lo del plan de hasta 100 empleados','Phishing personalizado recurrente: clones de vuestros portales y correos internos','Panel multiusuario para tus admins','Gestión delegada opcional: lo llevamos nosotros','Consultor dedicado (Legitec)'], cta: 'Solicitar demo', featured: false },
       ].map((p,i)=>(
         <Reveal key={i} delay={i+1}>
           <div className={`rounded-3xl p-8 h-full flex flex-col relative ${p.featured?'bg-black text-white border border-black':'bg-white border border-gray-200'}`}>
@@ -791,6 +878,11 @@ const Precios = () => (
         </Reveal>
       ))}
     </div>
+    <Reveal delay={2} className="mt-9">
+      <p className="text-center text-sm md:text-base max-w-3xl mx-auto" style={{color:'var(--fg-muted)'}}>
+        Lo que otras plataformas cobran como extra — o directamente no tienen — aquí está incluido: <strong style={{color:'var(--fg)'}}>phishing hecho a medida de tu empresa</strong> (no solo plantillas), <strong style={{color:'var(--fg)'}}>plataforma propia autogestionada</strong> y un equipo consultor en español al otro lado.
+      </p>
+    </Reveal>
     {/* adapt strip */}
     <Reveal delay={2} className="mt-10">
       <div className="rounded-3xl border-2 border-dashed p-8 md:p-10 flex flex-col md:flex-row gap-6 md:items-center justify-between" style={{borderColor:'var(--border-strong)', background:'var(--bg-soft)'}}>
@@ -1112,6 +1204,19 @@ const Footer = () => (
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
+  // Al llegar desde otra página con ancla (p.ej. blog.html -> index.html#contacto),
+  // el hash se resuelve antes de que React pinte las secciones: re-scroll tras el render.
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    const go = () => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ block: 'start' });
+    };
+    go();
+    const t = setTimeout(go, 450);
+    return () => clearTimeout(t);
+  }, []);
   return (
     <div className="t-bg t-fg">
       <Nav theme={theme} toggleTheme={toggleTheme} />
