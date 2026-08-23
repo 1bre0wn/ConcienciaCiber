@@ -53,7 +53,7 @@ const WS_POSTS = [
       <p>Empresas que compran tecnología y olvidan a las personas. NIS2 menciona explícitamente la <em>"ciberhigiene y la formación"</em> como medida obligatoria (artículo 21.2.g). Un firewall no te sirve de evidencia de que tu plantilla sabe identificar un correo malicioso; un registro de formación con resultados de simulaciones, sí.</p>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>Antes de invertir un euro más en tecnología, lanza una campaña de phishing simulada. Es la forma más rápida y barata de obtener tu métrica de riesgo humano real — y esa cifra inicial será la base de la evidencia de mejora continua que te pedirá el auditor.</p>
       </div>
 
@@ -77,7 +77,7 @@ const WS_POSTS = [
     excerpt: 'Los atacantes ya no necesitan escribir correos: con 30 segundos de audio público clonan la voz de un directivo y autorizan transferencias por teléfono. Así funciona el ataque y así se frena.',
     date: '28 may 2026',
     read: 7,
-    author: 'Análisis de amenazas · ConcienciaCiber',
+    author: 'Análisis de amenazas · LegiLearn',
     c1: '#2d1b00', c2: '#1a1a1a',
     art: '<g stroke="rgba(245,166,35,0.6)" fill="none" stroke-width="2"><path d="M60 115 q20 -40 40 0 q20 40 40 0 q20 -40 40 0 q20 40 40 0 q20 -40 40 0"/></g><g stroke="rgba(245,166,35,0.25)" fill="none"><path d="M60 145 q20 -25 40 0 q20 25 40 0 q20 -25 40 0 q20 25 40 0 q20 -25 40 0"/></g>',
     body: `
@@ -115,12 +115,12 @@ const WS_POSTS = [
       <p><strong>3. Entrenamiento con simulaciones.</strong> Igual que simulamos correos de phishing, simulamos llamadas de vishing. Quien ha vivido el ataque una vez en un simulacro — con el corazón acelerado y la "voz del jefe" al otro lado — no cae en el real.</p>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>Documenta el protocolo de doble verificación en una página, fírmalo desde dirección y entrénalo con un simulacro trimestral. El día que llegue la llamada real, tu equipo no tendrá que decidir bajo presión: solo seguir el procedimiento.</p>
       </div>
 
       <hr>
-      <p>En ConcienciaCiber hemos incorporado módulos específicos de fraude por voz e ingeniería social telefónica a los itinerarios de formación, con simulaciones de vishing incluidas. Si tu plan de concienciación solo cubre el correo, tiene un agujero del tamaño de una llamada.</p>
+      <p>En LegiLearn hemos incorporado módulos específicos de fraude por voz e ingeniería social telefónica a los itinerarios de formación, con simulaciones de vishing incluidas. Si tu plan de concienciación solo cubre el correo, tiene un agujero del tamaño de una llamada.</p>
     `,
   },
   {
@@ -131,7 +131,7 @@ const WS_POSTS = [
     excerpt: 'Pegatinas falsas sobre códigos legítimos en parquímetros, cartas físicas con QR "del banco" y menús de restaurante manipulados. El phishing por QR crece porque salta los filtros del correo.',
     date: '19 may 2026',
     read: 6,
-    author: 'Análisis de amenazas · ConcienciaCiber',
+    author: 'Análisis de amenazas · LegiLearn',
     c1: '#0f2027', c2: '#203a43',
     art: '<g fill="rgba(245,166,35,0.55)"><rect x="290" y="60" width="14" height="14"/><rect x="310" y="60" width="14" height="14"/><rect x="350" y="60" width="14" height="14"/><rect x="290" y="80" width="14" height="14"/><rect x="330" y="80" width="14" height="14"/><rect x="290" y="120" width="14" height="14"/><rect x="310" y="100" width="14" height="14"/><rect x="350" y="100" width="14" height="14"/><rect x="330" y="120" width="14" height="14"/><rect x="350" y="140" width="14" height="14"/><rect x="290" y="160" width="14" height="14"/><rect x="310" y="160" width="14" height="14"/></g>',
     body: `
@@ -153,7 +153,7 @@ const WS_POSTS = [
 
       <blockquote>
         <p>En las campañas de quishing simulado lanzadas desde nuestra plataforma, el 23% de los empleados escaneó el código y llegó a introducir sus credenciales.</p>
-        <cite>— Resultados agregados, primeras 50 empresas, ConcienciaCiber 2026</cite>
+        <cite>— Resultados agregados, primeras 50 empresas, LegiLearn 2026</cite>
       </blockquote>
 
       <h2>Reglas de oro para tu equipo</h2>
@@ -166,7 +166,7 @@ const WS_POSTS = [
       </ol>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>Incluye el quishing en tu próxima campaña de simulación. Es el vector con mayor diferencia entre percepción y realidad: los equipos se creen preparados porque "saben de phishing", y los resultados demuestran lo contrario. La plantilla de campaña QR está lista para lanzar en la plataforma.</p>
       </div>
 
@@ -182,7 +182,7 @@ const WS_POSTS = [
     excerpt: 'Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.',
     date: '12 may 2026',
     read: 8,
-    author: 'Guías prácticas · ConcienciaCiber',
+    author: 'Guías prácticas · LegiLearn',
     c1: '#1a1a2e', c2: '#0f3460',
     art: '<g stroke="rgba(245,166,35,0.55)" fill="none" stroke-width="2"><circle cx="310" cy="100" r="28"/><path d="M310 128 v40 M310 145 h22 M310 160 h16"/></g><g stroke="rgba(255,255,255,0.1)"><line x1="0" y1="190" x2="400" y2="190"/></g>',
     body: `
@@ -222,7 +222,7 @@ const WS_POSTS = [
       </ol>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>El mayor obstáculo no es técnico, es de comunicación: la gente desconfía de lo que no entiende ("¿y si me cortan el dedo?", nos preguntan en serio en las formaciones). Acompaña el despliegue con una píldora formativa que explique qué es una passkey y por qué es más cómoda — cuando el empleado entiende que gana en comodidad y en seguridad a la vez, la adopción se dispara.</p>
       </div>
 
@@ -238,7 +238,7 @@ const WS_POSTS = [
     excerpt: 'Pagar el rescate no garantiza recuperar nada — y en muchos casos es ilegal. La única defensa real es una estrategia de copias que el atacante no pueda cifrar. Te contamos la regla de oro actualizada.',
     date: '05 may 2026',
     read: 7,
-    author: 'Guías prácticas · ConcienciaCiber',
+    author: 'Guías prácticas · LegiLearn',
     c1: '#232526', c2: '#414345',
     art: '<g stroke="rgba(245,166,35,0.5)" fill="none" stroke-width="2"><rect x="280" y="70" width="60" height="44" rx="4"/><rect x="292" y="92" width="60" height="44" rx="4" fill="rgba(245,166,35,0.12)"/><rect x="304" y="114" width="60" height="44" rx="4" fill="rgba(245,166,35,0.2)"/></g>',
     body: `
@@ -278,7 +278,7 @@ const WS_POSTS = [
       </ul>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>Trata el backup como un sistema de seguridad, no como una tarea de mantenimiento: credenciales separadas del dominio principal, copia inmutable, prueba de restauración trimestral documentada. Y recuerda que el ransomware entra casi siempre por un correo — la mejor restauración es la que nunca llegas a necesitar.</p>
       </div>
 
@@ -294,7 +294,7 @@ const WS_POSTS = [
     excerpt: 'Wifi abiertas, pantallas a la vista, portátiles desbloqueados y conversaciones de trabajo a volumen de conferencia. Una guía realista de seguridad para equipos híbridos, sin paranoia.',
     date: '27 abr 2026',
     read: 6,
-    author: 'Buenas prácticas · ConcienciaCiber',
+    author: 'Buenas prácticas · LegiLearn',
     c1: '#134e5e', c2: '#1a1a2e',
     art: '<g stroke="rgba(245,166,35,0.55)" fill="none" stroke-width="2"><path d="M280 140 a45 45 0 0 1 80 0"/><path d="M292 152 a30 30 0 0 1 56 0"/><path d="M304 164 a16 16 0 0 1 32 0"/><circle cx="320" cy="172" r="4" fill="rgba(245,166,35,0.8)"/></g>',
     body: `
@@ -330,7 +330,7 @@ const WS_POSTS = [
       </ol>
 
       <div class="callout">
-        <div class="callout-label">Recomendación ConcienciaCiber</div>
+        <div class="callout-label">Recomendación LegiLearn</div>
         <p>La política de teletrabajo perfecta de 14 páginas que nadie lee protege menos que seis hábitos entrenados. Convierte esta lista en tu política mínima, fórmala con casos reales y refuérzala con un recordatorio trimestral. Lo simple y repetido gana a lo exhaustivo e ignorado.</p>
       </div>
 
