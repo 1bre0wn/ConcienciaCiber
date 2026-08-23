@@ -41,7 +41,7 @@ export default async function handler(req, res) {
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;max-width:560px;margin:0 auto;color:#111">
       <h2 style="font-size:18px;margin:0 0 4px">Nueva solicitud de demo</h2>
-      <p style="font-size:13px;color:#6b7280;margin:0 0 16px">Enviada desde la web de ConcienciaCiber.</p>
+      <p style="font-size:13px;color:#6b7280;margin:0 0 16px">Enviada desde la web de LegiLearn.</p>
       <table style="border-collapse:collapse;width:100%">
         ${row('Nombre', first + ' ' + last)}
         ${row('Email', email)}
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: process.env.CONTACT_FROM || 'ConcienciaCiber <onboarding@resend.dev>',
+        from: process.env.CONTACT_FROM || 'LegiLearn <onboarding@resend.dev>',
         to: [process.env.CONTACT_TO || 'eperez@legitec.com'],
         reply_to: email,
         subject: `Nueva solicitud de demo: ${company}`,

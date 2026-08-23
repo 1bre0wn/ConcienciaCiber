@@ -1,0 +1,136 @@
+/* ==========================================================================
+   LegiLearn — comportamiento de la página
+   Tres cosas y nada más: menú móvil, aparición al hacer scroll y envío del
+   formulario. Sin dependencias.
+   ========================================================================== */
+(() => {
+  'use strict';
+
+  /* --- Menú móvil ------------------------------------------------------- */
+  const nav = document.querySelector('[data-nav]');
+  const toggle = document.querySelector('[data-nav-toggle]');
+
+  if (nav && toggle) {
+    const setOpen = (open) => {
+      nav.dataset.open = String(open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.querySelector('.sr-only').textContent = open ? 'Cerrar menú' : 'Abrir menú';
+      toggle.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
+    };
+
+    toggle.addEventListener('click', () => setOpen(nav.dataset.open !== 'true'));
+
+    // Cerrar al navegar a una sección o al pulsar Escape.
+    nav.querySelectorAll('.nav__links a').forEach((link) =>
+      link.addEventListener('click', () => setOpen(false))
+    );
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.dataset.open === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+
+  /* --- Aparición al hacer scroll ----------------------------------------
+     Comprobación por posición en lugar de IntersectionObserver: es igual de
+     barata para dos docenas de elementos y no depende de que el observador
+     dispare, así que el contenido nunca se queda invisible. */
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  const quiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (quiet) {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  } else {
+    let pending = reveals;
+    let queued = false;
+
+    const check = () => {
+      queued = false;
+      const limit = window.innerHeight - 60;
+      pending = pending.filter((el) => {
+        if (el.getBoundingClientRect().top > limit) return true;
+        el.classList.add('is-in');
+        return false;
+      });
+      if (!pending.length) {
+        window.removeEventListener('scroll', request);
+        window.removeEventListener('resize', request);
+      }
+    };
+
+    const request = () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(check);
+    };
+
+    const revealAll = () => {
+      pending.forEach((el) => el.classList.add('is-in'));
+      pending = [];
+      window.removeEventListener('scroll', request);
+      window.removeEventListener('resize', request);
+    };
+
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    window.addEventListener('load', request);
+    check();
+
+    // Red de seguridad: si por lo que sea el scroll nunca llega (navegador
+    // raro, lector automático, pestaña en segundo plano), el contenido
+    // aparece igualmente. Nunca se queda una sección invisible.
+    setTimeout(revealAll, 5000);
+  }
+
+  /* --- Formulario de contacto ------------------------------------------- */
+  const form = document.getElementById('form-demo');
+
+  if (form) {
+    const status = form.querySelector('[data-status]');
+    const button = form.querySelector('[data-submit]');
+    const label = button.innerHTML;
+
+    const say = (text, state) => {
+      status.textContent = text;
+      if (state) status.dataset.state = state;
+      else status.removeAttribute('data-state');
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Validación nativa: enfoca el primer campo con problema.
+      if (!form.checkValidity()) {
+        const invalid = form.querySelector(':invalid');
+        if (invalid) invalid.focus();
+        say('Revisa los campos marcados antes de enviar.', 'error');
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form));
+      delete data.consent;
+
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+      say('');
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) throw new Error('request_failed');
+
+        form.dataset.sent = 'true';
+        form.querySelector('.form__done').focus?.();
+      } catch (error) {
+        button.disabled = false;
+        button.innerHTML = label;
+        say('No se pudo enviar. Vuelve a intentarlo o escríbenos a eperez@legitec.com.', 'error');
+      }
+    });
+  }
+})();

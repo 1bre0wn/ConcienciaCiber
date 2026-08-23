@@ -3,1133 +3,943 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ConcienciaCiber — Academia de ciberseguridad para empresas</title>
+
+<!-- ===== SEO básico =====
+     OJO: cambia CANONICAL_URL por el dominio real antes de publicar.
+     Aparece en <link rel="canonical">, en las etiquetas og:/twitter: y en el JSON-LD. -->
+<title>LegiLearn · Formación y simulaciones de phishing para empresas</title>
+<meta name="description" content="Programa de concienciación en ciberseguridad: simulaciones de phishing a medida, píldoras formativas con test, certificados verificables e informes listos para ENS, NIS2, ISO 27001 y RGPD. Primera campaña gratis.">
+<link rel="canonical" href="https://www.legilearn.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Legitec Ciberseguridad S.L.">
+<meta name="theme-color" content="#0a0a0b">
+
+<!-- ===== Redes sociales ===== -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LegiLearn">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://www.legilearn.com/">
+<meta property="og:title" content="LegiLearn · Formación y simulaciones de phishing para empresas">
+<meta property="og:description" content="Simulaciones de phishing reales, formación breve con test y evidencias listas para tu auditoría. Primera campaña gratis.">
+<meta property="og:image" content="https://www.legilearn.com/assets/dashboard-home.png">
+<meta property="og:image:alt" content="Panel de LegiLearn con las campañas de concienciación">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LegiLearn · Formación y simulaciones de phishing para empresas">
+<meta name="twitter:description" content="Simulaciones de phishing reales, formación breve con test y evidencias listas para tu auditoría.">
+<meta name="twitter:image" content="https://www.legilearn.com/assets/dashboard-home.png">
+
+<!-- ===== Iconos ===== -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0b'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='19' font-weight='700' fill='%23f5a623' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+
+<!-- ===== Tipografías ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  :root {
-    --amber: #F5A623; --amber-strong: #F2B90B; --amber-soft: #FEF3E2;
-    --bg: #ffffff; --bg-soft: #f9fafb; --bg-elev: #ffffff;
-    --fg: #000000; --fg-muted: #6b7280; --fg-soft: #9ca3af;
-    --border: #e5e7eb; --border-strong: #d1d5db;
-    --code-bg: #f3f4f6;
-    --hero-grad: radial-gradient(1200px 600px at 50% -200px, rgba(245,166,35,0.12), transparent 60%), radial-gradient(800px 400px at 100% 0%, rgba(245,166,35,0.06), transparent 70%);
-  }
-  [data-theme="dark"] {
-    --bg: #0a0a0b; --bg-soft: #111113; --bg-elev: #16171a;
-    --fg: #f5f5f5; --fg-muted: #9ca3af; --fg-soft: #6b7280;
-    --border: #232428; --border-strong: #2d2e33;
-    --code-bg: #1c1d20;
-    --hero-grad: radial-gradient(1200px 600px at 50% -200px, rgba(245,166,35,0.18), transparent 60%), radial-gradient(800px 400px at 100% 0%, rgba(245,166,35,0.10), transparent 70%);
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--fg); transition: background 0.3s, color 0.3s; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
-  /* theme-aware utilities (override Tailwind where used) */
-  .t-bg { background: var(--bg); }
-  .t-bg-soft { background: var(--bg-soft); }
-  .t-bg-elev { background: var(--bg-elev); }
-  .t-fg { color: var(--fg); }
-  .t-fg-muted { color: var(--fg-muted); }
-  .t-fg-soft { color: var(--fg-soft); }
-  .t-border { border-color: var(--border); }
-  .t-border-strong { border-color: var(--border-strong); }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-  .animate-fade-in-up { animation: fadeInUp 0.7s cubic-bezier(.2,.7,.3,1) forwards; }
+<link rel="stylesheet" href="assets/styles.css">
+<script>document.documentElement.classList.add('js');</script>
 
-  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(.2,.7,.3,1), transform 0.9s cubic-bezier(.2,.7,.3,1); }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.08s; }
-  .reveal-d2 { transition-delay: 0.16s; }
-  .reveal-d3 { transition-delay: 0.24s; }
-  .reveal-d4 { transition-delay: 0.32s; }
-
-  .dotted-bg {
-    background-image: radial-gradient(circle, rgba(0,0,0,0.07) 1px, transparent 1px);
-    background-size: 22px 22px;
-  }
-  .soft-grad { background: var(--hero-grad); }
-  .glass {
-    backdrop-filter: blur(14px);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
-  }
-  [data-theme="dark"] .dotted-bg { background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px); }
-  [data-theme="dark"] .noise::after { opacity: 0.04; }
-
-  /* invert dashboard screenshots in dark mode for visual cohesion (subtle) */
-  [data-theme="dark"] .screenshot-frame { box-shadow: 0 30px 80px -20px rgba(0,0,0,0.6); }
-
-  /* widen sections */
-  .max-w-7xl { max-width: 1400px !important; }
-  @media (min-width: 1024px) {
-    .whitespace-nowrap-lg { white-space: nowrap; }
-  }
-
-  /* ===== DARK MODE OVERRIDES (map tailwind utility classes used in sections) ===== */
-  [data-theme="dark"] .bg-white { background-color: var(--bg-elev) !important; }
-  [data-theme="dark"] .bg-gray-50 { background-color: var(--bg-soft) !important; }
-  [data-theme="dark"] .bg-gray-100 { background-color: var(--code-bg) !important; }
-  [data-theme="dark"] .bg-gray-200 { background-color: var(--border) !important; }
-  [data-theme="dark"] .bg-gray-900,
-  [data-theme="dark"] .bg-black { background-color: #000 !important; }
-
-  [data-theme="dark"] .border-gray-100,
-  [data-theme="dark"] .border-gray-200,
-  [data-theme="dark"] .border-gray-300 { border-color: var(--border) !important; }
-
-  [data-theme="dark"] .text-black { color: var(--fg) !important; }
-  [data-theme="dark"] .text-gray-900 { color: var(--fg) !important; }
-  [data-theme="dark"] .text-gray-800 { color: var(--fg) !important; }
-  [data-theme="dark"] .text-gray-700 { color: var(--fg-muted) !important; }
-  [data-theme="dark"] .text-gray-600 { color: var(--fg-muted) !important; }
-  [data-theme="dark"] .text-gray-500 { color: var(--fg-soft) !important; }
-  [data-theme="dark"] .text-gray-400 { color: var(--fg-soft) !important; }
-
-  [data-theme="dark"] .bg-amber-50 { background-color: rgba(245,166,35,0.12) !important; }
-  [data-theme="dark"] .border-amber-200 { border-color: rgba(245,166,35,0.3) !important; }
-  [data-theme="dark"] .text-amber-700,
-  [data-theme="dark"] .text-amber-800,
-  [data-theme="dark"] .text-amber-900 { color: #FBBF24 !important; }
-  [data-theme="dark"] .text-amber-900\/80 { color: rgba(251,191,36,0.85) !important; }
-
-  [data-theme="dark"] .bg-green-50 { background-color: rgba(34,197,94,0.12) !important; }
-  [data-theme="dark"] .border-green-100 { border-color: rgba(34,197,94,0.3) !important; }
-
-  [data-theme="dark"] input,
-  [data-theme="dark"] select,
-  [data-theme="dark"] textarea {
-    background-color: var(--bg-soft) !important;
-    border-color: var(--border) !important;
-    color: var(--fg) !important;
-  }
-  [data-theme="dark"] input::placeholder,
-  [data-theme="dark"] textarea::placeholder { color: var(--fg-soft) !important; }
-  [data-theme="dark"] input:focus,
-  [data-theme="dark"] select:focus,
-  [data-theme="dark"] textarea:focus {
-    background-color: var(--bg) !important;
-    border-color: var(--fg) !important;
-  }
-
-  /* Section "black" stays black in both modes (intentional contrast) */
-  [data-theme="dark"] section.bg-black { background-color: #000 !important; }
-  [data-theme="dark"] .border-white\/10 { border-color: rgba(255,255,255,0.1) !important; }
-  [data-theme="dark"] .border-white\/20 { border-color: rgba(255,255,255,0.2) !important; }
-
-  /* Card hovers feel more elevated in dark */
-  [data-theme="dark"] .card-float:hover { box-shadow: 0 20px 40px -20px rgba(0,0,0,0.6); }
-  /* marquee */
-  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-track { display: flex; animation: slide 40s linear infinite; width: max-content; }
-
-  /* testimonial carousel */
-  @keyframes testimonialSlide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .testimonial-carousel { overflow: hidden; position: relative; }
-  .carousel-track {
-    display: flex;
-    gap: 24px;
-    padding: 8px 6vw;
-    width: max-content;
-    animation: testimonialSlide 60s linear infinite;
-  }
-  .testimonial-carousel:hover .carousel-track { animation-play-state: paused; }
-  .testimonial-card {
-    flex: 0 0 auto;
-    width: 380px;
-    height: 300px;
-  }
-  .carousel-fade-l, .carousel-fade-r {
-    position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
-  }
-  .carousel-fade-l { left: 0; background: linear-gradient(to right, var(--bg-soft), transparent); }
-  .carousel-fade-r { right: 0; background: linear-gradient(to left, var(--bg-soft), transparent); }
-
-  .card-float { transition: transform 0.35s cubic-bezier(.2,.7,.3,1), box-shadow 0.35s; }
-  .card-float:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.15); }
-
-  /* hover lightbox for the "qué hacemos" cards */
-  @keyframes qhFade { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes qhPop { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
-  .qh-backdrop { animation: qhFade 0.2s ease forwards; }
-  .qh-modal { animation: qhPop 0.32s cubic-bezier(.2,.7,.3,1) forwards; }
-
-  .noise { position: relative; }
-  .noise::after {
-    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-</style>
-</head>
-<body class="antialiased" data-theme="light">
-<div id="root"></div>
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-<script type="text/babel">
-const { useState, useEffect, useRef } = React;
-
-const LI = ({ name, className = 'w-4 h-4', fill = 'none', stroke }) => {
-  const ref = React.useRef(null);
-  React.useEffect(() => {
-    if (!ref.current || !window.lucide) return;
-    ref.current.innerHTML = '';
-    const el = document.createElement('i');
-    el.setAttribute('data-lucide', name);
-    ref.current.appendChild(el);
-    const attrs = { class: className, fill };
-    if (stroke) attrs.stroke = stroke;
-    window.lucide.createIcons({ attrs });
-  }, [name, className, fill, stroke]);
-  return <span ref={ref} className="inline-flex" />;
-};
-
-const useReveal = () => {
-  const ref = useRef(null);
-  useEffect(() => {
-    const el = ref.current; if (!el) return;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { el.classList.add('in'); obs.unobserve(el); } });
-    }, { threshold: 0.12 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-};
-
-const Reveal = ({ children, delay = 0, className = '', as = 'div' }) => {
-  const ref = useReveal();
-  const Tag = as;
-  const d = delay ? ` reveal-d${delay}` : '';
-  return <Tag ref={ref} className={`reveal${d} ${className}`}>{children}</Tag>;
-};
-
-/* ============ THEME ============ */
-const useTheme = () => {
-  const [theme, setTheme] = useState(() => {
-    try { return localStorage.getItem('ws-theme') || 'light'; } catch { return 'light'; }
-  });
-  useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-    try { localStorage.setItem('ws-theme', theme); } catch {}
-  }, [theme]);
-  return [theme, () => setTheme(t => t === 'light' ? 'dark' : 'light')];
-};
-
-/* ============ NAV ============ */
-const NAV_ITEMS = [
-  { id: 'que-hacemos', label: 'Soluciones' },
-  { id: 'compliance',  label: 'Cumplimiento' },
-  { id: 'precios',     label: 'Precios' },
-  { id: 'testimonios', label: 'Clientes' },
-];
-
-const Nav = ({ theme, toggleTheme }) => (
-  <nav className="sticky top-0 z-40 glass border-b t-border">
-    <div className="px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-      <a href="#top" className="flex items-center h-9 overflow-hidden" aria-label="ConcienciaCiber">
-        <img
-          src={theme === 'light' ? 'assets/concienciaciber-logo-claro.png' : 'assets/concienciaciber-logo-oscuro.png'}
-          alt="ConcienciaCiber"
-          className="h-16 w-auto max-w-none"
-        />
-      </a>
-      <div className="hidden md:flex items-center gap-8">
-        {NAV_ITEMS.map(t => (
-          <a key={t.id} href={`#${t.id}`} className="text-sm t-fg-muted hover:t-fg transition-colors" style={{color: 'var(--fg-muted)'}}>{t.label}</a>
-        ))}
-      </div>
-      <div className="flex items-center gap-3">
-        <button
-          onClick={toggleTheme}
-          aria-label="Cambiar tema"
-          className="w-9 h-9 rounded-full border t-border flex items-center justify-center hover:t-bg-soft transition-colors"
-          style={{borderColor:'var(--border)'}}
-        >
-          <LI name={theme === 'light' ? 'moon' : 'sun'} className="w-4 h-4" stroke="currentColor" />
-        </button>
-        <a href="#contacto" className="px-5 py-2.5 rounded-full text-sm font-medium transition-colors" style={{background:'var(--fg)', color:'var(--bg)'}}>Empezar gratis</a>
-      </div>
-    </div>
-  </nav>
-);
-
-/* ============ HERO ============ */
-const Hero = () => (
-  <section id="top" className="relative overflow-hidden soft-grad noise">
-    <div className="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-20 relative">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* LEFT — copy */}
-        <div className="relative z-10">
-          <h1 className="text-5xl md:text-6xl lg:text-[64px] font-normal leading-[1.05] tracking-tight mb-6 mt-2 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.15s', textWrap: 'balance' }}>
-            Enseñamos a tu equipo a <span className="italic font-light" style={{ color: 'var(--amber-strong)' }}>no caer</span> en el phishing.
-          </h1>
-
-          <p className="text-lg md:text-xl mb-9 max-w-xl opacity-0 animate-fade-in-up" style={{ animationDelay: '0.25s', color:'var(--fg-muted)', textWrap: 'pretty' }}>
-            Reducimos el riesgo humano de tu empresa con un programa de concienciación en ciberseguridad práctico, cercano y fácil de poner en marcha.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <a href="#contacto" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-base font-medium transition-colors" style={{background:'var(--fg)', color:'var(--bg)'}}>
-              Primera campaña gratis <LI name="arrow-right" className="w-4 h-4" stroke="currentColor" />
-            </a>
-            <a href="#que-hacemos" className="inline-flex items-center gap-2 text-base font-medium px-5 py-3.5 hover:opacity-70 transition-opacity" style={{color:'var(--fg)'}}>
-              <LI name="play-circle" className="w-4 h-4" stroke="currentColor" /> Ver cómo funciona
-            </a>
-          </div>
-
-          {/* mini-features */}
-          <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg opacity-0 animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
-            {[
-              ['mail-warning', 'Simulaciones de phishing'],
-              ['graduation-cap', 'Charlas y píldoras en vídeo'],
-              ['layout-dashboard', 'Todo en una sola app'],
-            ].map(([ic,tx],i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-2.5">
-                <span className="w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center">
-                  <LI name={ic} className="w-5 h-5" stroke="#B45309" />
-                </span>
-                <span className="text-xs leading-snug" style={{color:'var(--fg-muted)'}}>{tx}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* RIGHT — dashboard mock */}
-        <div className="relative opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          {/* layered backdrop */}
-          <div className="absolute -inset-4 -z-10 rounded-[36px]" style={{background:'linear-gradient(135deg, var(--amber-soft), transparent 60%)', opacity: 0.6}}></div>
-
-          <div className="screenshot-frame rounded-3xl overflow-hidden border t-border shadow-2xl t-bg-elev" style={{borderColor:'var(--border)'}}>
-            <div className="h-9 flex items-center gap-1.5 px-4 border-b t-border" style={{background:'var(--bg-soft)', borderColor:'var(--border)'}}>
-              <span className="w-2.5 h-2.5 rounded-full" style={{background:'#FF5F57'}}></span>
-              <span className="w-2.5 h-2.5 rounded-full" style={{background:'#FEBC2E'}}></span>
-              <span className="w-2.5 h-2.5 rounded-full" style={{background:'#28C840'}}></span>
-              <span className="mx-auto text-[11px] mono" style={{color:'var(--fg-soft)'}}>concienciaciber.com / home</span>
-            </div>
-            <img src="assets/dashboard-home.png" alt="Panel ConcienciaCiber" className="w-full block" />
-          </div>
-
-          {/* floating metric — phishing */}
-          <div className="hidden md:block absolute -left-6 bottom-12 rounded-2xl shadow-xl border t-border p-4 w-60 t-bg-elev" style={{borderColor:'var(--border)'}}>
-            <div className="flex items-start gap-3">
-              <span className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{background:'rgba(34,197,94,0.12)'}}>
-                <LI name="trending-down" className="w-5 h-5" stroke="#16a34a" />
-              </span>
-              <div className="flex-1">
-                <div className="text-[10px] mono tracking-widest" style={{color:'var(--fg-soft)'}}>EMPLEADOS QUE PICAN</div>
-                <div className="text-sm font-semibold mt-0.5 flex items-baseline gap-1.5">
-                  <span className="text-xs font-normal line-through" style={{color:'var(--fg-soft)'}}>27%</span>
-                  <LI name="arrow-right" className="w-3 h-3" stroke="#9ca3af" />
-                  <span className="text-green-600">7%</span>
-                  <span className="font-normal text-[11px]" style={{color:'var(--fg-muted)'}}>en 6 meses</span>
-                </div>
-                <div className="mt-2 flex items-end gap-0.5 h-5">
-                  {[62,56,50,44,38,30,24,16,11].map((h,i)=>(
-                    <span key={i} className="w-1.5 rounded-sm" style={{height:`${h}%`, background: i >= 5 ? '#16a34a' : 'var(--amber)', opacity: 0.45 + (i/8)*0.55}}></span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* floating metric — campaign */}
-          <div className="hidden md:block absolute -right-6 -top-4 rounded-2xl shadow-xl p-4 w-60" style={{background:'#0a0a0b', color:'#f5f5f5'}}>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-              <div className="text-[10px] mono tracking-widest text-white/60">Phishing Activo</div>
-            </div>
-            <div className="text-sm font-semibold mb-2.5">Legitec Ciberseguridad S.L</div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="flex-1 h-1.5 rounded-full bg-white/10 overflow-hidden">
-                <div className="h-full rounded-full" style={{ width: '68%', background: 'var(--amber)' }}></div>
-              </div>
-              <span className="text-[10px] mono text-white/70">68%</span>
-            </div>
-            <div className="text-[10px] text-white/50 mono">843 / 1.240 envíos</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* logos marquee */}
-    <div className="border-t t-border t-bg-soft overflow-hidden" style={{borderColor:'var(--border)'}}>
-      <div className="max-w-7xl mx-auto px-6 py-7">
-        <div className="text-center text-xs mono tracking-widest mb-5" style={{color:'var(--fg-soft)'}}>CONFÍAN EN NOSOTROS</div>
-        <div className="overflow-hidden">
-          <div className="marquee-track">
-            {[...Array(2)].flatMap((_,k)=>['LEGITEC','TRANVIA DE MURCIA','CEMENTOS LA CRUZ','NAVILENS','VIDAL','ORENES','AMAT','MUFACE','FUNDACIÓN ASPACIA','MONBUS'].map((n,i)=>(
-              <span key={`${k}-${i}`} className="text-xl md:text-2xl font-light tracking-[0.18em] px-10 whitespace-nowrap" style={{color:'var(--fg-soft)'}}>{n}</span>
-            )))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-/* ============ QUÉ HACEMOS ============ */
-const QueHacemos = () => {
-  const PILLARS = [
+<!-- ===== Datos estructurados ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      tag: '01', icon: 'mail-warning', title: 'Simulaciones de phishing',
-      text: 'Lanzamos ataques simulados al correo de tu equipo: desde plantillas listas para usar hasta clones a medida de vuestros propios accesos. Cada clic se convierte, al instante, en una lección.',
-      stats: ['Plantillas o clones a medida', 'Logins de Microsoft/Google y propios', 'Resultados en tiempo real'],
-      img: 'assets/dashboard-equipo.png',
+      "@type": "Organization",
+      "@id": "https://www.legilearn.com/#organizacion",
+      "name": "LegiLearn",
+      "url": "https://www.legilearn.com/",
+      "description": "Programa de concienciación en ciberseguridad para empresas: simulaciones de phishing, formación en píldoras, certificación y evidencias de cumplimiento.",
+      "parentOrganization": { "@type": "Organization", "name": "Legitec Ciberseguridad S.L." },
+      "email": "eperez@legitec.com",
+      "telephone": "+34722462552",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida de los Rectores, 2-4 bajo",
+        "postalCode": "30100",
+        "addressLocality": "Murcia",
+        "addressCountry": "ES"
+      },
+      "areaServed": ["ES", "EU", "LATAM"]
     },
     {
-      tag: '02', icon: 'graduation-cap', title: 'Charlas y píldoras formativas',
-      text: 'Píldoras formativas en vídeo, breves y directas, cada una con su test para confirmar quién completa la formación y llevar un seguimiento real del progreso. Y, cuando algo no queda claro, charlas formativas que resuelven las dudas en profundidad.',
-      stats: ['Charlas en directo', 'Píldoras en vídeo + test', 'Genéricas o a medida'],
-      img: 'assets/dashboard-actividades.png',
+      "@type": "WebSite",
+      "@id": "https://www.legilearn.com/#web",
+      "url": "https://www.legilearn.com/",
+      "name": "LegiLearn",
+      "inLanguage": "es-ES",
+      "publisher": { "@id": "https://www.legilearn.com/#organizacion" }
     },
     {
-      tag: '03', icon: 'layout-dashboard', title: 'Tú lo gestionas, o nosotros',
-      text: 'Toda la actividad vive en una única app. Da acceso a los administradores de tu empresa para que la gestionen o nos encargamos nosotros mismos de principio a fin.',
-      stats: ['Acceso para tus administradores', 'Opción totalmente gestionada', 'Informes y seguimiento'],
-      img: 'assets/dashboard-progreso.png',
-    },
-  ];
-  const [active, setActive] = useState(null);
-  const open = (i) => setActive(i);
-  const close = () => setActive(null);
-
-  useEffect(() => {
-    document.body.style.overflow = active != null ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [active]);
-
-  const actData = active != null ? PILLARS[active] : null;
-
-  return (
-    <section id="que-hacemos" className="bg-white py-24 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <Reveal>
-          <div className="max-w-5xl mb-16">
-            <div className="inline-flex items-center gap-2 text-xs mono tracking-[0.2em] uppercase t-fg-soft mb-4" style={{color:'var(--fg-soft)'}}>
-              <span className="w-8 h-0.5 rounded-full" style={{background:'var(--amber-strong)'}} /> QUÉ HACEMOS
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-normal tracking-tight leading-[1.05] whitespace-nowrap-lg">
-              Tres piezas que, juntas, <span className="italic font-light" style={{color:'var(--amber-strong)'}}>blindan tu empresa</span>.
-            </h2>
-            <p className="mt-5 text-lg max-w-3xl" style={{color:'var(--fg-muted)', textWrap:'balance'}}>El error humano causa el 82% de los incidentes de ciberseguridad. Lo atacamos por las tres vías que de verdad funcionan.</p>
-          </div>
-        </Reveal>
-        <div className="grid md:grid-cols-3 gap-8">
-          {PILLARS.map((p,i)=>(
-            <Reveal key={i} delay={i+1}>
-              <div onClick={()=>open(i)} className="rounded-3xl border border-gray-200 bg-white card-float h-full flex flex-col overflow-hidden cursor-pointer">
-                <div className="relative aspect-[16/11] overflow-hidden border-b border-gray-100 bg-gray-50">
-                  <img src={p.img} alt="" className="w-full h-full object-contain"/>
-                  <span className="absolute top-3 left-3 text-[10px] mono tracking-widest bg-white/90 backdrop-blur px-2 py-1 rounded-full text-gray-700 border border-gray-200">{p.tag}</span>
-                </div>
-                <div className="p-7 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-2.5 text-center">{p.title}</h3>
-                  <p className="text-gray-600 text-[15px] leading-relaxed flex-1 text-justify">{p.text}</p>
-                  <ul className="mt-5 space-y-1.5 text-xs mono text-gray-500 border-t border-gray-100 pt-4">
-                    {p.stats.map((s,j)=>(
-                      <li key={j} className="flex items-center gap-2">
-                        <LI name="check" className="w-3.5 h-3.5" stroke="#B45309" /> {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-
-      {actData && (
-        <div
-          className="qh-backdrop fixed inset-0 z-50 flex items-center justify-center p-6"
-          style={{background:'rgba(0,0,0,0.62)', backdropFilter:'blur(4px)'}}
-        >
-          <div
-            className="qh-modal relative rounded-3xl overflow-hidden border shadow-2xl flex flex-col t-bg-elev"
-            style={{borderColor:'var(--border)', width:'min(900px, 94vw)', maxHeight:'90vh'}}
-          >
-            <button onClick={close} aria-label="Cerrar" className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center" style={{background:'var(--bg-soft)', border:'1px solid var(--border)', color:'var(--fg)'}}>
-              <LI name="x" className="w-4 h-4" stroke="currentColor" />
-            </button>
-            <div className="relative flex items-center justify-center bg-gray-50">
-              <img src={actData.img} alt="" className="w-full block object-contain" style={{maxHeight:'56vh'}}/>
-              <span className="absolute top-4 left-4 text-[10px] mono tracking-widest bg-white/90 backdrop-blur px-2.5 py-1 rounded-full text-gray-700 border border-gray-200">{actData.tag}</span>
-            </div>
-            <div className="p-8 overflow-y-auto">
-              <h3 className="text-2xl font-semibold mb-3 text-center">{actData.title}</h3>
-              <p className="text-[15px] leading-relaxed text-justify" style={{color:'var(--fg-muted)'}}>{actData.text}</p>
-              <ul className="mt-6 grid sm:grid-cols-3 gap-2.5 text-xs mono border-t pt-5" style={{borderColor:'var(--border)', color:'var(--fg-soft)'}}>
-                {actData.stats.map((s,j)=>(
-                  <li key={j} className="flex items-center gap-2">
-                    <LI name="check" className="w-3.5 h-3.5" stroke="#B45309" /> {s}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-};
-
-/* ============ SECTION WRAPPER ============ */
-const Section = ({ id, eyebrow, title, subtitle, tone = 'white', children }) => {
-  const bgClass = tone === 'gray' ? 'bg-gray-50' : tone === 'black' ? 'bg-black text-white' : 'bg-white';
-  return (
-    <section id={id} className={`${bgClass} py-24 border-t ${tone==='black'?'border-white/10':'border-gray-100'}`}>
-      <div className="max-w-7xl mx-auto px-6">
-        <Reveal>
-          <div className="max-w-5xl mb-14">
-            <div className={`inline-flex items-center gap-2 text-xs mono tracking-[0.2em] uppercase mb-4 ${tone==='black'?'text-white/60':'text-gray-500'}`}>
-              <span className="w-8 h-0.5 rounded-full" style={{background:'var(--amber-strong)'}} /> {eyebrow}
-            </div>
-            <h2 className={`text-4xl md:text-5xl lg:text-[52px] font-normal tracking-tight leading-[1.05] whitespace-nowrap-lg ${tone==='black'?'text-white':'text-black'}`}>{title}</h2>
-            {subtitle && <p className={`mt-5 text-lg ${tone==='black'?'text-gray-400':'text-gray-600'} max-w-2xl`}>{subtitle}</p>}
-          </div>
-        </Reveal>
-        {children}
-      </div>
-    </section>
-  );
-};
-
-/* ============ APRENDE ============ */
-const PildoraPlayer = () => {
-  const [playing, setPlaying] = useState(false);
-  return (
-    <div className="relative aspect-video bg-gray-900 flex items-center justify-center">
-      {playing ? (
-        <iframe
-          className="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/uFhcQtnFpPg?autoplay=1&rel=0"
-          title="Píldora formativa"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
-      ) : (
-        <button
-          onClick={() => setPlaying(true)}
-          aria-label="Reproducir vídeo"
-          className="absolute inset-0 flex items-center justify-center group"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.48)), url(https://img.youtube.com/vi/uFhcQtnFpPg/hqdefault.jpg)',
-            backgroundSize: 'cover', backgroundPosition: 'center'
-          }}
-        >
-          <span className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
-            <LI name="play" className="w-6 h-6" fill="#0a0a0b" stroke="#0a0a0b" />
-          </span>
-          <span className="absolute top-4 left-4 text-[10px] mono tracking-widest text-white/80 bg-white/10 px-2.5 py-1 rounded-full">PÍLDORA FORMATIVA</span>
-        </button>
-      )}
-    </div>
-  );
-};
-
-const Aprende = () => (
-  <Section id="aprende" tone="gray"
-    eyebrow="02 · APRENDE"
-    title="Formación que encaja con el ritmo del trabajo."
-    subtitle="Píldoras en vídeo de pocos minutos con un test al final, y charlas formativas para resolver dudas. Sin interrumpir el día a día y sin sermones técnicos.">
-    <div className="grid md:grid-cols-12 gap-6">
-      <Reveal delay={1} className="md:col-span-7">
-        <div className="rounded-3xl border border-gray-200 bg-white overflow-hidden card-float h-full flex flex-col">
-          {/* reproductor de la píldora */}
-          <PildoraPlayer />
-          {/* test al final */}
-          <div className="p-7 flex-1 flex flex-col">
-            <div className="inline-flex items-center gap-2 text-[10px] mono tracking-widest text-gray-500 mb-3">
-              <LI name="check-circle" className="w-3.5 h-3.5" /> TEST RÁPIDO · PREGUNTA 1 DE 3
-            </div>
-            <h3 className="text-xl font-semibold leading-snug mb-4">¿Qué señal delata que este correo es phishing?</h3>
-            <div className="space-y-2.5">
-              {[
-                ['El remitente te saluda por tu nombre', false],
-                ['El dominio del remitente no es el oficial', true],
-                ['El correo ha llegado un lunes por la mañana', false],
-              ].map(([opt,ok],i)=>(
-                <div key={i} className="flex items-center gap-3 p-3 rounded-xl border text-sm"
-                  style={ok ? {borderColor:'#22c55e', background:'rgba(34,197,94,0.10)'} : {borderColor:'var(--border)'}}>
-                  <span className="w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0"
-                    style={ok ? {borderColor:'#22c55e', background:'#22c55e'} : {borderColor:'var(--border-strong)'}}>
-                    {ok && <LI name="check" className="w-3 h-3" stroke="white" />}
-                  </span>
-                  <span style={ok ? {color:'#16a34a', fontWeight:600} : {color:'var(--fg-muted)'}}>{opt}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Reveal>
-      <div className="md:col-span-5 grid grid-rows-3 gap-6">
-        {[
-          { icon: 'list-checks', title: 'Test al final de cada píldora', text: 'Un par de preguntas que confirman que el contenido se ha entendido, no solo visto.' },
-          { icon: 'line-chart', title: 'Sabes quién ha completado', text: 'Seguimiento del progreso por empleado y equipo, en tiempo real desde el panel.' },
-          { icon: 'messages-square', title: 'Charlas formativas en directo', text: 'Sesiones para resolver dudas y reforzar lo que no quedó claro en las píldoras.' },
-        ].map((f,i) => (
-          <Reveal key={i} delay={i+2}>
-            <div className="rounded-3xl border border-gray-200 p-5 bg-white h-full flex flex-col items-center justify-center text-center gap-3 card-float">
-              <span className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 inline-flex items-center justify-center flex-shrink-0">
-                <LI name={f.icon} className="w-5 h-5" stroke="#B45309" />
-              </span>
-              <div>
-                <h4 className="text-base font-semibold mb-1">{f.title}</h4>
-                <p className="text-gray-600 text-sm leading-snug">{f.text}</p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </Section>
-);
-
-/* ============ PRACTICA ============ */
-const Practica = () => (
-  <Section id="practica" tone="white"
-    eyebrow="01 · PRACTICA"
-    title="Simulaciones reales, sin daños colaterales."
-    subtitle="Envía campañas de phishing controladas, mide quién cae y convierte cada error en una oportunidad de aprendizaje.">
-    {/* servicios premium a medida — lo que de verdad nos diferencia */}
-    <div className="grid md:grid-cols-2 gap-6 items-stretch">
-      <Reveal delay={1}>
-        <div className="rounded-3xl border p-9 h-full flex flex-col card-float" style={{borderColor:'var(--border)', background:'var(--bg-elev)'}}>
-          <div className="text-[10px] mono tracking-widest mb-2" style={{color:'var(--fg-soft)'}}>SERVICIO PREMIUM · INCLUIDO</div>
-          <h3 className="text-2xl font-semibold tracking-tight mb-3">Correos reescritos a mano para tu empresa</h3>
-          <p className="text-[15px] leading-relaxed mb-6 flex-1 text-justify" style={{color:'var(--fg-muted)'}}>
-            Replicamos a mano el estilo de correos internos de <strong>RRHH, tu CEO, IT o proveedores reales</strong> con los que trabajáis. El atacante no envía un genérico: envía exactamente lo que vuestros empleados ven cada día.
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {['Tono corporativo','Firma del CEO','Logo en el header','Jerga interna'].map(t => (
-              <span key={t} className="text-[11px] mono px-2.5 py-1 rounded-full" style={{background:'var(--code-bg)', color:'var(--fg-muted)'}}>{t}</span>
-            ))}
-          </div>
-        </div>
-      </Reveal>
-      <Reveal delay={2}>
-        <div className="rounded-3xl border p-9 h-full flex flex-col card-float" style={{borderColor:'var(--border)', background:'var(--bg-elev)'}}>
-          <div className="text-[10px] mono tracking-widest mb-2" style={{color:'var(--fg-soft)'}}>LANDING PAGES A MEDIDA</div>
-          <h3 className="text-2xl font-semibold tracking-tight mb-3">Clonamos vuestros logins internos</h3>
-          <p className="text-[15px] leading-relaxed mb-6 flex-1 text-justify" style={{color:'var(--fg-muted)'}}>
-            Replicamos vuestros portales privados (VPN, intranet, gestor de nóminas, SharePoint custom) en páginas controladas por nosotros. El empleado ve lo de siempre; nosotros medimos quién introduce sus credenciales sin pensar.
-          </p>
-          <div className="flex items-center gap-2 text-xs mono p-3 rounded-lg" style={{background:'var(--code-bg)', color:'var(--fg-muted)'}}>
-            <span style={{color:'#10b981'}}>●</span>
-            <span style={{color:'var(--fg-muted)'}}>Compramos dominios parecidos:</span><span style={{color:'var(--fg)'}}>{'{tuempresa}'}</span><span style={{color:'var(--fg-muted)'}}>.com/.es/.it</span>
-          </div>
-        </div>
-      </Reveal>
-    </div>
-
-    {/* plantillas listas */}
-    <Reveal delay={1} className="mt-6">
-      <div className="rounded-3xl bg-black text-white p-10 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between">
-        <div>
-          <div className="text-[10px] mono tracking-widest text-gray-400 mb-2">PLAYBOOKS INCLUIDOS</div>
-          <h3 className="text-2xl md:text-3xl font-normal tracking-tight">+30 plantillas listas para lanzar en 5 minutos.</h3>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {['Phishing bancario','Phishing con adjuntos','SMS','QR malicioso','Reinicio de Contraseña'].map(t => (
-            <span key={t} className="text-xs px-3 py-1.5 rounded-full border border-white/20">{t}</span>
-          ))}
-        </div>
-      </div>
-    </Reveal>
-
-    {/* demo de campaña + resultados */}
-    <div className="grid md:grid-cols-2 gap-8 items-stretch mt-6">
-      <Reveal delay={1}>
-        <div className="rounded-3xl bg-white border border-gray-200 p-8 h-full card-float">
-          <div className="flex items-center justify-between mb-6">
-            <div className="inline-flex items-center gap-2 text-[10px] mono tracking-widest text-gray-500">
-              <LI name="mail" className="w-3.5 h-3.5" /> CAMPAÑA ACTIVA
-            </div>
-            <span className="text-xs px-2.5 py-1 bg-green-50 text-green-700 rounded-full font-medium">En curso</span>
-          </div>
-          <div className="border border-gray-200 rounded-2xl overflow-hidden">
-            <div className="border-b border-gray-100 p-4 flex items-center gap-3">
-              <span className="w-9 h-9 rounded-full bg-gray-900 text-white flex items-center justify-center text-xs font-semibold">LM</span>
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-semibold">Factura de tu nómina de abril</div>
-                <div className="text-xs text-gray-500 truncate">Laura Méndez · rrhh@concienciaciber.com · hace 4 min</div>
-              </div>
-            </div>
-            <div className="p-5 text-sm text-gray-700 space-y-3">
-              <p>Hola,</p>
-              <p>Adjunto la <strong>factura del ajuste salarial</strong> de este mes. Revisa el Excel y <u className="text-amber-700">confirma tus datos bancarios antes del viernes</u> para que el pago se procese a tiempo.</p>
-              <div className="flex items-center gap-3 border border-gray-200 rounded-lg p-2.5">
-                <span className="w-9 h-9 rounded bg-green-600 text-white flex items-center justify-center text-[10px] font-bold">XLS</span>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs font-semibold truncate">Factura_Nomina_Abril_2026.xlsx</div>
-                  <div className="text-[11px] text-gray-500">Hoja de cálculo · 21 KB</div>
-                </div>
-                <LI name="download" className="w-4 h-4" stroke="#6b7280" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-      <Reveal delay={2}>
-        <div className="rounded-3xl bg-white border border-gray-200 p-8 h-full card-float flex flex-col">
-          <div className="inline-flex items-center gap-2 text-[10px] mono tracking-widest text-gray-500 mb-6">
-            <LI name="activity" className="w-3.5 h-3.5" /> RESULTADOS EN TIEMPO REAL
-          </div>
-          <div className="flex-1 flex items-center">
-            <img src="assets/tiemporeal.png" alt="Eventos de la campaña en tiempo real" className="w-full rounded-xl block" />
-          </div>
-        </div>
-      </Reveal>
-    </div>
-  </Section>
-);
-
-
-/* ============ CERTIFICA ============ */
-const Certifica = () => (
-  <Section id="certifica" tone="black"
-    eyebrow="03 · CERTIFICA"
-    title="Acreditaciones que valen dentro y fuera de tu empresa."
-    subtitle="Cada empleado que completa la formación recibe su certificado, verificable por QR. Para tu equipo es un reconocimiento; para ti, una evidencia lista para cualquier auditoría.">
-    <div className="grid md:grid-cols-12 gap-8 items-stretch">
-      <Reveal delay={1} className="md:col-span-6">
-        <div className="h-full rounded-3xl bg-gradient-to-br from-gray-900 to-black border border-white/10 p-10 relative overflow-hidden">
-          <div className="absolute inset-0 dotted-bg opacity-40" />
-          <div className="relative z-10">
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold tracking-wider">CONCIENCIACIBER</span>
-              </div>
-              <div className="text-[10px] mono tracking-widest text-white/50">CERT · CYB-101</div>
-            </div>
-            <div className="text-[11px] mono tracking-[0.22em] text-white/60 mb-3">CERTIFICADO DE APROVECHAMIENTO</div>
-            <div className="text-3xl md:text-4xl font-light tracking-tight mb-1">Nerea García Ruiz</div>
-            <div className="text-sm text-white/60 mb-6">ha completado con éxito la formación</div>
-            <div className="text-2xl font-medium mb-8">Concienciación en Ciberseguridad</div>
-            <div className="flex items-end justify-between">
-              <div>
-                <div className="text-xs text-white/50 mb-1 mono tracking-wider">EMITIDO</div>
-                <div className="text-sm font-medium">18 abril 2026</div>
-              </div>
-              <div>
-                <div className="text-xs text-white/50 mb-1 mono tracking-wider">PUNTUACIÓN</div>
-                <div className="text-sm font-medium text-amber-400">94 / 100</div>
-              </div>
-              <div className="w-16 h-16 rounded bg-white grid grid-cols-5 grid-rows-5 gap-[1px] p-1">
-                {Array.from({length:25}).map((_,i)=>(
-                  <div key={i} className="bg-black" style={{opacity: (i*7)%5 > 2 ? 1 : 0}} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-      <div className="md:col-span-6 flex flex-col gap-4">
-        {[
-          { icon: 'file-check', title: 'Evidencia para tus auditorías', text: 'Demuestra ante ENS, NIS2 o ISO 27001 que tu equipo ha recibido la formación obligatoria en ciberseguridad.' },
-          { icon: 'qr-code', title: 'Verificable al instante', text: 'Cada certificado lleva un QR único: cualquier cliente o auditor comprueba su autenticidad en segundos.' },
-          { icon: 'refresh-ccw', title: 'Se renueva cada año', text: 'El certificado caduca al año y se renueva con los contenidos actualizados, para que la formación nunca quede desfasada.' },
-        ].map((f,i)=>(
-          <Reveal key={i} delay={i+1} className="flex-1">
-            <div className="h-full flex gap-5 items-center p-5 rounded-2xl border border-white/10 hover:border-white/30 transition-colors">
-              <span className="w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/25 flex items-center justify-center flex-shrink-0">
-                <LI name={f.icon} className="w-5 h-5" stroke="#F2B90B" />
-              </span>
-              <div>
-                <h4 className="text-lg font-semibold mb-1">{f.title}</h4>
-                <p className="text-gray-400 text-sm">{f.text}</p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </Section>
-);
-
-/* ============ PRECIOS ============ */
-const Precios = () => (
-  <Section id="precios" tone="white" eyebrow="PLANES"
-    title="Un plan para cada necesidad."
-    subtitle={<span className="block text-justify">Desde un pack puntual para empezar hasta el programa anual completo, con formación, simulaciones de phishing e informes de cumplimiento. Si solo necesitas una parte, preparamos un presupuesto a medida, y producimos contenido formativo bajo demanda para las necesidades concretas de tu empresa.</span>}>
-    <div className="grid md:grid-cols-3 gap-6">
-      {[
-        { name: 'Starter Pack', from: true, price: '290€', unit: 'pago único · sin permanencia', note: 'Ideal para probar el servicio', f: ['3 píldoras formativas con test','1 campaña de phishing','Informe de resultados','Acceso al panel de control'], cta: 'Empezar ahora', featured: false },
-        { name: 'Programa Anual', from: true, price: '15€', unit: '/ empleado / año', f: ['Acceso al catálogo completo de píldoras','Campañas de phishing periódicas','Charlas formativas en directo','Informes de cumplimiento (ENS, NIS2, ISO)','Panel multiusuario para tus admins','Soporte prioritario'], cta: 'Solicitar demo', featured: true, badge: 'Más completo' },
-        { name: 'A medida', from: false, price: 'Presupuesto', unit: 'sin compromiso', f: ['Solo phishing, solo formación o todo','Píldoras y simulaciones personalizadas','Clones a medida de vuestros logins','Contenido formativo bajo demanda','Gestión delegada: lo llevamos nosotros','Soporte dedicado'], cta: 'Pedir presupuesto', featured: false },
-      ].map((p,i)=>(
-        <Reveal key={i} delay={i+1}>
-          <div className={`rounded-3xl p-8 h-full flex flex-col relative ${p.featured?'bg-black text-white border border-black':'bg-white border border-gray-200'}`}>
-            {p.badge && <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] mono tracking-widest uppercase bg-amber-400 text-black px-3 py-1 rounded-full">{p.badge}</span>}
-            <div className="text-sm font-semibold mono tracking-widest uppercase mb-6">{p.name}</div>
-            <div className="mb-1 flex items-baseline gap-2">
-              {p.from && <span className={`text-base ${p.featured?'text-gray-400':'text-gray-500'}`}>Desde</span>}
-              <span className="text-5xl font-normal tracking-tight">{p.price}</span>
-            </div>
-            <div className={`text-sm ${p.featured?'text-gray-400':'text-gray-500'} ${p.note?'mb-4':'mb-8'}`}>{p.unit || '\u00a0'}</div>
-            {p.note && (
-              <div className="mb-8 text-xs font-medium rounded-lg px-3 py-2 bg-amber-50 border border-amber-200 text-amber-800">{p.note}</div>
-            )}
-            <ul className="space-y-3 mb-8 flex-1">
-              {p.f.map((x,j)=>(
-                <li key={j} className="flex items-start gap-3 text-sm">
-                  <LI name="check" className="w-4 h-4 mt-0.5" stroke={p.featured?'#F5A623':'currentColor'} />
-                  <span className={p.featured?'text-gray-200':'text-gray-700'}>{x}</span>
-                </li>
-              ))}
-            </ul>
-            <a href="#contacto" className={`text-center rounded-full px-5 py-3 text-sm font-medium transition-colors ${p.featured?'bg-white text-black hover:bg-gray-100':'bg-black text-white hover:bg-gray-800'}`}>
-              {p.cta}
-            </a>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-    {/* adapt strip */}
-    <Reveal delay={2} className="mt-10">
-      <div className="rounded-3xl border-2 border-dashed p-8 md:p-10 flex flex-col md:flex-row gap-6 md:items-center justify-between" style={{borderColor:'var(--border-strong)', background:'var(--bg-soft)'}}>
-        <div className="flex items-center gap-5 flex-1">
-          <span className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0" style={{background:'var(--amber-soft)'}}>
-            <LI name="puzzle" className="w-6 h-6" stroke="#B45309" />
-          </span>
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold mb-1.5">¿Necesitas algo diferente? Lo adaptamos.</h3>
-            <p className="text-sm md:text-base" style={{color:'var(--fg-muted)'}}>Contrata solo campañas de phishing, solo formación, o monta un paquete a medida. También creamos módulos de formación específicos para tu sector, protocolos o amenazas concretas. Tú nos cuentas y nosotros producimos.</p>
-          </div>
-        </div>
-        <a href="#contacto" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap" style={{background:'var(--fg)', color:'var(--bg)'}}>
-          Hablar con ventas <LI name="arrow-right" className="w-4 h-4" stroke="currentColor" />
-        </a>
-      </div>
-    </Reveal>
-  </Section>
-);
-
-/* ============ COMPLIANCE ============ */
-const Compliance = () => {
-  const FRAMEWORKS = [
-    { code: 'ENS', name: 'Esquema Nacional de Seguridad', tag: 'Admin. Pública', scope: 'España', req: 'Concienciación del personal' },
-    { code: 'NIS2', name: 'Directiva europea de ciberseguridad', tag: 'Sector esencial', scope: 'UE', req: 'Formación en ciberseguridad' },
-    { code: 'ISO 27001', name: 'Gestión de seguridad de la información', tag: 'Internacional', scope: 'ISO', req: 'Concienciación y formación' },
-    { code: 'RGPD', name: 'Protección de datos personales', tag: 'Reglamento', scope: 'UE', req: 'Formación del personal' },
-    { code: 'DORA', name: 'Resiliencia operativa digital', tag: 'Sector financiero', scope: 'UE', req: 'Concienciación en seguridad' },
-    { code: 'PCI DSS', name: 'Medios de pago', tag: 'E-commerce', scope: 'Global', req: 'Programa de concienciación' },
-  ];
-  const LATAM = [
-    { country: 'México', code: 'LFPDPPP' },
-    { country: 'Brasil', code: 'LGPD' },
-    { country: 'Colombia', code: 'Ley 1581' },
-    { country: 'Argentina', code: 'Ley 25.326' },
-    { country: 'Chile', code: 'Ley 21.719' },
-    { country: 'Perú', code: 'Ley 29733' },
-  ];
-  return (
-    <section id="compliance" className="py-24 border-t" style={{background:'var(--bg-soft)', borderColor:'var(--border)'}}>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-10 items-start">
-          <Reveal className="md:col-span-5">
-            <div className="inline-flex items-center gap-2 text-xs mono tracking-[0.2em] uppercase mb-4" style={{color:'var(--fg-soft)'}}>
-              <span className="w-8 h-0.5 rounded-full" style={{background:'var(--amber-strong)'}} /> CUMPLIMIENTO
-            </div>
-            <h2 className="text-4xl md:text-5xl font-normal tracking-tight leading-[1.08] mb-5">
-              Preparamos tu empresa para pasar <span className="italic font-light" style={{color:'var(--amber-strong)'}}>cualquier auditoría</span>.
-            </h2>
-            <p className="text-lg mb-8 text-justify" style={{color:'var(--fg-muted)'}}>
-              Todo lo que te piden las normativas (formación obligatoria, trazabilidad, evidencias de phishing, informes auditables) sale directamente de la plataforma. Sin Excel, sin correos perdidos, sin sustos de última hora.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                'Informes instantáneos exportables a PDF',
-                'Evidencias con timestamp y firma de la plataforma',
-                'Plantillas de formación ajustadas a cada norma',
-                'Seguimiento por empleado, equipo y organización',
-              ].map((t,i) => (
-                <li key={i} className="flex items-start gap-3 text-sm">
-                  <span className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{background:'var(--fg)', color:'var(--bg)'}}>
-                    <LI name="check" className="w-3 h-3" stroke="currentColor" />
-                  </span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal delay={2} className="md:col-span-7">
-            <div className="rounded-2xl border overflow-hidden" style={{borderColor:'var(--border)', background:'var(--bg-elev)'}}>
-              <div className="px-6 py-4 border-b flex items-center justify-between" style={{borderColor:'var(--border)'}}>
-                <div className="text-[10px] mono tracking-[0.2em] uppercase" style={{color:'var(--fg-soft)'}}>NORMATIVA</div>
-                <div className="text-[10px] mono tracking-[0.2em] uppercase" style={{color:'var(--fg-soft)'}}>REQUISITO QUE CUBRIMOS</div>
-              </div>
-              <ul>
-                {FRAMEWORKS.map((f,i) => (
-                  <li key={i} className="px-6 py-5 flex items-center gap-6 border-b last:border-b-0 hover:bg-black/[0.02] transition-colors" style={{borderColor:'var(--border)'}}>
-                    <div className="flex-shrink-0 w-24">
-                      <div className="text-lg font-semibold tracking-tight tabular-nums">{f.code}</div>
-                      <div className="text-[10px] mono uppercase tracking-widest mt-0.5" style={{color:'var(--fg-soft)'}}>{f.scope}</div>
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm" style={{color:'var(--fg)'}}>{f.name}</div>
-                      <div className="text-xs mt-1" style={{color:'var(--fg-muted)'}}>{f.tag}</div>
-                    </div>
-                    <div className="flex-shrink-0 w-52 flex items-center gap-2 text-xs" style={{color:'var(--fg-muted)'}}>
-                      <LI name="check" className="w-3.5 h-3.5 flex-shrink-0" stroke="#F2B90B" />
-                      <span>{f.req}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={1}>
-          <div className="mt-6 rounded-2xl border p-6 md:p-7 flex flex-col md:flex-row md:items-center gap-5" style={{borderColor:'var(--border)', background:'var(--bg-elev)'}}>
-            <div className="md:w-72 flex-shrink-0">
-              <div className="text-[10px] mono tracking-[0.2em] uppercase mb-1.5" style={{color:'var(--fg-soft)'}}>TAMBIÉN EN LATINOAMÉRICA</div>
-              <div className="text-sm" style={{color:'var(--fg-muted)'}}>Cubrimos el requisito de formación de las principales leyes de protección de datos.</div>
-            </div>
-            <div className="flex flex-wrap gap-2 flex-1">
-              {LATAM.map((l,i) => (
-                <span key={i} className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border" style={{borderColor:'var(--border)'}}>
-                  <span style={{color:'var(--fg-muted)'}}>{l.country}</span>
-                  <span className="mono font-medium" style={{color:'var(--fg)'}}>{l.code}</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
-
-/* ============ TESTIMONIALS (carousel) ============ */
-const TESTIMONIOS_DATA = [
-  { quote: 'Pasamos de un 24% de clic en phishing a un 3% en cuatro meses. Y sin quejas: el contenido es breve y directo.', name: 'Alejandro Cano', role: 'Director · Legitec', initials: 'AC' },
-  { quote: 'La plataforma es tan intuitiva que nuestro equipo de RRHH la gestiona sin depender de IT. Vale cada euro.', name: 'Víctor González López', role: 'Responsable de Operaciones · NaviLens', initials: 'VG' },
-  { quote: 'Nos ayudó a superar la auditoría ENS en tiempo récord. Los informes son exactamente lo que pedía el auditor.', name: 'Vicente Seiquer', role: 'Responsable de IT · Tranvía de Murcia', initials: 'VS' },
-  { quote: 'Los recordatorios automáticos han sido un cambio total. El ratio de finalización subió del 40% al 91% en un trimestre.', name: 'José Antonio Paredes', role: 'Dirección · Cementos La Cruz', initials: 'JP' },
-  { quote: 'Produjeron módulos a medida para nuestro equipo. Los empleados los sienten propios, no como formación corporativa genérica.', name: 'Marta Jiménez', role: 'Responsable · Fundación Aspacia', initials: 'MJ' },
-  { quote: 'Tranquilidad absoluta para pasar la ISO 27001. Toda la trazabilidad que pedía el auditor la tuvimos en PDF con dos clics.', name: 'Carlos Malatesta', role: 'Compliance Officer · Monbus', initials: 'CM' },
-];
-
-const Testimonios = () => (
-  <section id="testimonios" className="bg-gray-50 py-24 border-t border-gray-100 overflow-hidden" style={{background:'var(--bg-soft)'}}>
-    <div className="max-w-7xl mx-auto px-6 mb-12">
-      <Reveal>
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-xs mono tracking-[0.2em] uppercase mb-4" style={{color:'var(--fg-soft)'}}>
-            <span className="w-8 h-0.5 rounded-full" style={{background:'var(--amber-strong)'}} /> HISTORIAS REALES
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-[52px] font-normal tracking-tight leading-[1.05] whitespace-nowrap-lg">
-            Empresas que dejaron de temer un <span className="italic font-light" style={{color:'var(--amber-strong)'}}>lunes por la mañana</span>.
-          </h2>
-        </div>
-      </Reveal>
-    </div>
-    <Reveal>
-      <div className="testimonial-carousel relative">
-        <div className="carousel-fade-l"></div>
-        <div className="carousel-fade-r"></div>
-        <div className="carousel-track">
-          {[...TESTIMONIOS_DATA, ...TESTIMONIOS_DATA].map((t,i)=>(
-            <figure key={i} className="testimonial-card rounded-3xl border p-8 flex flex-col card-float" style={{borderColor:'var(--border)', background:'var(--bg-elev)'}}>
-              <svg viewBox="0 0 32 32" className="w-8 h-8 mb-5 text-amber-500" fill="currentColor"><path d="M10 18V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6zm10 0V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6z"/></svg>
-              <blockquote className="text-[15px] leading-relaxed flex-1" style={{color:'var(--fg)'}}>"{t.quote}"</blockquote>
-              <figcaption className="mt-6 pt-6 border-t flex items-center gap-3" style={{borderColor:'var(--border)'}}>
-                <span className="w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm" style={{background:'var(--amber-soft)', color:'var(--amber-strong)'}}>{t.initials}</span>
-                <div>
-                  <div className="font-semibold text-sm">{t.name}</div>
-                  <div className="text-xs" style={{color:'var(--fg-muted)'}}>{t.role}</div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </Reveal>
-  </section>
-);
-
-/* ============ CONTACTO (form) ============ */
-const Contacto = () => {
-  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    setStatus('sending');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error('fail');
-      setStatus('sent');
-    } catch (err) {
-      setStatus('error');
+      "@type": "Service",
+      "name": "Programa de concienciación en ciberseguridad",
+      "serviceType": "Formación en ciberseguridad y simulaciones de phishing",
+      "provider": { "@id": "https://www.legilearn.com/#organizacion" },
+      "areaServed": "ES",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter Pack",
+          "price": "290",
+          "priceCurrency": "EUR",
+          "description": "Pago único: 3 píldoras formativas con test, 1 campaña de phishing, informe de resultados y acceso al panel."
+        },
+        {
+          "@type": "Offer",
+          "name": "Programa Anual",
+          "price": "15",
+          "priceCurrency": "EUR",
+          "description": "Por empleado y año: catálogo completo de píldoras, campañas periódicas, charlas en directo e informes de cumplimiento."
+        }
+      ]
     }
-  };
-  return (
-    <section id="contacto" className="bg-white py-24 border-t border-gray-100 relative overflow-hidden">
-      <div className="absolute inset-0 soft-grad" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-5">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-medium mb-6">
-                <LI name="gift" className="w-3.5 h-3.5" stroke="#B45309" />
-                Primera campaña de phishing <strong>GRATIS</strong>
-              </div>
-            </Reveal>
-            <Reveal delay={1}>
-              <h2 className="text-4xl md:text-5xl font-normal tracking-tight leading-[1.1] mb-5">
-                Prueba ConcienciaCiber en tu empresa.
-              </h2>
-            </Reveal>
-            <Reveal delay={2}>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                Te preparamos una demo guiada y lanzamos una campaña de phishing a tu equipo, sin coste ni compromiso. Descubre en 1 semana dónde están tus puntos ciegos.
-              </p>
-            </Reveal>
-            <Reveal delay={3}>
-              <ul className="space-y-3">
-                {[
-                  'Demo personalizada de 20 min',
-                  'Campaña de phishing con resultados reales',
-                  'Informe de vulnerabilidad detallado',
-                  'Sin tarjeta. Sin permanencia.',
-                ].map((t,i)=>(
-                  <li key={i} className="flex items-start gap-3 text-sm">
-                    <span className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <LI name="check" className="w-3 h-3" stroke="white" />
-                    </span>
-                    <span className="text-gray-800">{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal delay={4}>
-              <div className="mt-10 flex items-center gap-4 pt-8 border-t border-gray-100">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white font-bold">EP</div>
-                <div>
-                  <div className="text-sm font-semibold">Eduardo Pérez · Encargado del departamento de Concienciación</div>
-                  <div className="text-xs text-gray-500"><a href="mailto:eperez@legitec.com" className="font-medium text-amber-700 hover:underline">eperez@legitec.com</a> · te responde en menos de 24 h laborables</div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={2} className="md:col-span-7">
-            <form onSubmit={onSubmit} className="bg-white rounded-3xl border border-gray-200 p-8 md:p-10 shadow-xl">
-              {status === 'sent' ? (
-                <div className="text-center py-12">
-                  <span className="w-16 h-16 rounded-full bg-green-50 text-green-600 inline-flex items-center justify-center mb-5">
-                    <LI name="check" className="w-8 h-8" stroke="#059669" />
-                  </span>
-                  <h3 className="text-2xl font-semibold mb-2">¡Gracias!</h3>
-                  <p className="text-gray-600 max-w-sm mx-auto">Hemos recibido tu petición. Te escribimos en las próximas 24 h para coordinar tu demo y tu campaña gratuita.</p>
-                </div>
-              ) : (<>
-                <h3 className="text-2xl font-semibold mb-1">Solicita tu demo</h3>
-                <p className="text-sm text-gray-500 mb-7">Rellena el formulario y prepararemos tu prueba gratuita.</p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {[
-                    ['first', 'Nombre', 'Nerea', 'text'],
-                    ['last', 'Apellido', 'García', 'text'],
-                    ['email', 'Email corporativo', 'nerea@empresa.com', 'email'],
-                    ['phone', 'Teléfono', '+34 600 000 000', 'tel'],
-                    ['company', 'Empresa', 'Legitec S.L.', 'text'],
-                  ].map(([id,label,ph,type],i) => (
-                    <label key={id} className={`flex flex-col gap-1.5 ${id==='company'?'sm:col-span-2':''}`}>
-                      <span className="text-xs font-semibold text-gray-700 tracking-wide">{label}</span>
-                      <input required name={id} type={type} placeholder={ph} className="px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:outline-none text-sm transition-colors" />
-                    </label>
-                  ))}
-                  <label className="flex flex-col gap-1.5">
-                    <span className="text-xs font-semibold text-gray-700 tracking-wide">Nº empleados</span>
-                    <select name="employees" className="px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:outline-none text-sm transition-colors">
-                      <option>1–50</option><option>50–100</option><option>100–300</option><option>&lt;500</option><option>500–1.000</option><option>&gt;1.000</option>
-                    </select>
-                  </label>
-                  <label className="flex flex-col gap-1.5">
-                    <span className="text-xs font-semibold text-gray-700 tracking-wide">Sector</span>
-                    <select name="sector" className="px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:outline-none text-sm transition-colors">
-                      <option>Tecnología</option><option>Banca / Finanzas</option><option>Salud</option><option>Industria</option><option>Administración pública</option><option>Otro</option>
-                    </select>
-                  </label>
-                  <label className="flex flex-col gap-1.5 sm:col-span-2">
-                    <span className="text-xs font-semibold text-gray-700 tracking-wide">Cuéntanos qué buscas (opcional)</span>
-                    <textarea name="message" rows="3" placeholder="Ej. Preparar a mi equipo para la auditoría NIS2 del próximo trimestre…" className="px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-black focus:outline-none text-sm transition-colors resize-none" />
-                  </label>
-                </div>
-                <label className="flex items-start gap-2.5 mt-5 text-xs text-gray-500">
-                  <input type="checkbox" required className="mt-0.5 accent-black" />
-                  <span>Acepto la <a href="#" className="text-black underline">política de privacidad</a> y recibir información sobre ConcienciaCiber.</span>
-                </label>
-                <button type="submit" disabled={status === 'sending'} className="w-full mt-6 bg-black text-white rounded-full px-6 py-4 font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
-                  {status === 'sending' ? 'Enviando…' : <>Pedir demo + campaña gratis <LI name="arrow-right" className="w-4 h-4" stroke="white" /></>}
-                </button>
-                {status === 'error' && (
-                  <div className="text-center mt-3 text-xs text-red-600">No se pudo enviar. Vuelve a intentarlo o escríbenos directamente a eperez@legitec.com.</div>
-                )}
-                <div className="text-center mt-4 text-xs text-gray-400 mono">O escribe a <a href="mailto:eperez@legitec.com" className="text-amber-700 hover:underline">eperez@legitec.com</a></div>
-              </>)}
-            </form>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Footer = () => (
-  <footer className="bg-black text-white">
-    <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
-      <div>
-        <div className="flex items-center h-9 overflow-hidden mb-4">
-          <img src="assets/concienciaciber-logo-oscuro.png" alt="ConcienciaCiber" className="h-16 w-auto max-w-none" />
-        </div>
-        <p className="text-gray-400 text-sm">Un servicio de Legitec Ciberseguridad S.L.</p>
-      </div>
-      <div className="text-sm text-gray-300 space-y-1.5">
-        <div className="text-xs mono tracking-widest text-white/50 mb-2">LEGITEC CIBERSEGURIDAD S.L.</div>
-        <div>Avenida de los Rectores, 2-4 bajo · 30100 Murcia</div>
-        <div><a href="tel:+34722462552" className="hover:text-white">+34 722 462 552</a></div>
-        <div><a href="mailto:eperez@legitec.com" className="hover:text-white">eperez@legitec.com</a></div>
-      </div>
-    </div>
-    <div className="border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-5 text-xs text-gray-500">
-        © 2026 Legitec Ciberseguridad S.L. · Todos los derechos reservados
-      </div>
-    </div>
-  </footer>
-);
-
-const App = () => {
-  const [theme, toggleTheme] = useTheme();
-  return (
-    <div className="t-bg t-fg">
-      <Nav theme={theme} toggleTheme={toggleTheme} />
-      <Hero />
-      <QueHacemos />
-      <Practica />
-      <Aprende />
-      <Certifica />
-      <Compliance />
-      <Precios />
-      <Testimonios />
-      <Contacto />
-      <Footer />
-    </div>
-  );
-};
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  ]
+}
 </script>
+</head>
+
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- Sprite de iconos: se usa con <use href="#i-…"> -->
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-play-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M3 13h5l1.5 2.5h5L16 13h5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 11.1 12.3 20a5.5 5.5 0 0 1-7.8-7.8l9-8.9a3.7 3.7 0 0 1 5.2 5.2l-9 9a1.8 1.8 0 0 1-2.6-2.6l8.3-8.2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="19" x="6" y="2.5" rx="2.5"/><path d="M11 19h2"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="6" height="6" x="3" y="3" rx="1"/><rect width="6" height="6" x="15" y="3" rx="1"/><rect width="6" height="6" x="3" y="15" rx="1"/><path d="M15 15h2v2h-2z"/><path d="M19 19h2v2h-2z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="5" rx="2"/><path d="M3 9h18"/><path d="M9 14h6"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 10.6V16c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5.4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 15 4-4 4 4 5-6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+  <symbol id="i-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 9a2 2 0 0 0-2-2h-1.6V5.4a2.4 2.4 0 1 0-4.8 0V7H9.4a2 2 0 0 0-2 2v1.6H5.8a2.4 2.4 0 1 0 0 4.8h1.6V17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2Z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="7" rx="1"/><path d="M12 22V7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M7.5 7a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 32 32" fill="currentColor"><path d="M10 18V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6zm10 0V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+</svg>
+
+<!-- ====================== NAVEGACIÓN ====================== -->
+<header class="nav" data-nav>
+  <div class="wrap nav__inner">
+    <a class="brand" href="#inicio" aria-label="LegiLearn, inicio">Legi<span>Learn</span></a>
+
+    <nav class="nav__links" id="menu" aria-label="Principal">
+      <a class="nav__link" href="#simulaciones">Simulaciones</a>
+      <a class="nav__link" href="#formacion">Formación</a>
+      <a class="nav__link" href="#certificados">Certificación</a>
+      <a class="nav__link" href="#cumplimiento">Cumplimiento</a>
+      <a class="nav__link" href="#precios">Precios</a>
+      <a class="nav__link" href="#clientes">Clientes</a>
+      <a class="nav__link nav__cta-m" href="#contacto">Primera campaña gratis</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="btn btn--amber" href="#contacto">Primera campaña gratis</a>
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="menu">
+        <span class="sr-only">Abrir menú</span>
+        <svg width="24" height="24" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div class="hero__copy">
+        <p class="hero__eyebrow up">Academia de ciberseguridad para empresas</p>
+        <h1 class="up up--1">Enseñamos a tu equipo a no caer en el phishing.</h1>
+        <p class="hero__lead up up--2">Reducimos el riesgo humano de tu empresa con simulaciones reales, formación breve y certificados válidos para tu auditoría. Todo en una sola plataforma: la gestionas tú o la gestionamos nosotros.</p>
+        <div class="hero__cta up up--3">
+          <a class="btn btn--lg btn--amber" href="#contacto">
+            Primera campaña gratis
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <a class="btn btn--lg btn--ghost-dark" href="#simulaciones">
+            <svg width="17" height="17" aria-hidden="true"><use href="#i-play-circle"/></svg>
+            Ver cómo funciona
+          </a>
+        </div>
+      </div>
+
+      <div class="shot up up--4">
+        <div class="shot__frame">
+          <div class="shot__bar">
+            <span class="shot__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="shot__url">app.legilearn.com</span>
+            <span style="width:44px"></span>
+          </div>
+          <img src="assets/dashboard-home.png" width="1111" height="819" fetchpriority="high" decoding="async"
+               alt="Panel de LegiLearn: menú de campañas, formación y organización junto al tutorial de inicio.">
+        </div>
+
+        <figure class="float float--light">
+          <span class="icon-tile" style="background:var(--green-soft);color:var(--green)">
+            <svg width="19" height="19" aria-hidden="true"><use href="#i-trend"/></svg>
+          </span>
+          <figcaption style="display:flex;flex-direction:column;gap:7px;flex:1">
+            <span class="mono" style="font-size:9px;letter-spacing:.14em;color:var(--fg-muted)">EMPLEADOS QUE PICAN</span>
+            <span class="num" style="display:flex;align-items:baseline;gap:7px">
+              <s style="font-size:13px;color:var(--fg-faint)">27%</s>
+              <svg width="12" height="12" style="color:var(--fg-faint)" aria-hidden="true"><use href="#i-arrow"/></svg>
+              <b style="font-size:16px;color:var(--green)">7%</b>
+              <span style="font-size:11px;color:var(--fg-muted)">en 6 meses</span>
+            </span>
+            <span class="bars" aria-hidden="true">
+              <i style="height:100%;opacity:.5"></i><i style="height:90%;opacity:.55"></i><i style="height:80%;opacity:.62"></i>
+              <i style="height:70%;opacity:.7"></i><i style="height:60%;opacity:.8"></i>
+              <i class="is-good" style="height:48%;opacity:.6"></i><i class="is-good" style="height:38%;opacity:.75"></i>
+              <i class="is-good" style="height:26%;opacity:.88"></i><i class="is-good" style="height:18%"></i>
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="float float--dark">
+          <p style="display:flex;align-items:center;gap:8px">
+            <span class="pulse" style="width:6px;height:6px;border-radius:999px;background:#22c55e" aria-hidden="true"></span>
+            <span class="mono" style="font-size:9px;letter-spacing:.14em;color:rgba(245,245,245,.55)">PHISHING ACTIVO</span>
+          </p>
+          <p style="font-size:14px;font-weight:600">Legitec Ciberseguridad S.L.</p>
+          <p style="display:flex;align-items:center;gap:10px">
+            <span class="meter meter--dark" style="flex:1"><i style="width:68%"></i></span>
+            <span class="mono num" style="font-size:10px;color:rgba(245,245,245,.7)">68%</span>
+          </p>
+          <p class="mono num" style="font-size:10px;color:rgba(245,245,245,.42)">843 / 1.240 envíos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CLIENTES (marquesina) ====================== -->
+  <section class="clients" aria-label="Empresas que confían en LegiLearn">
+    <p class="clients__label">CONFÍAN EN NOSOTROS</p>
+    <div class="marquee">
+      <ul class="marquee__track">
+        <li>LEGITEC</li><li>TRANVÍA DE MURCIA</li><li>CEMENTOS LA CRUZ</li><li>NAVILENS</li><li>VIDAL</li>
+        <li>ORENES</li><li>AMAT</li><li>MUFACE</li><li>FUNDACIÓN ASPACIA</li><li>MONBUS</li>
+        <li aria-hidden="true">LEGITEC</li><li aria-hidden="true">TRANVÍA DE MURCIA</li><li aria-hidden="true">CEMENTOS LA CRUZ</li>
+        <li aria-hidden="true">NAVILENS</li><li aria-hidden="true">VIDAL</li><li aria-hidden="true">ORENES</li>
+        <li aria-hidden="true">AMAT</li><li aria-hidden="true">MUFACE</li><li aria-hidden="true">FUNDACIÓN ASPACIA</li>
+        <li aria-hidden="true">MONBUS</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====================== CÓMO TRABAJAMOS ====================== -->
+  <section class="section section--tight" id="como-trabajamos" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head__title">
+          <p class="eyebrow">Cómo trabajamos</p>
+          <h2>Simular, formar y medir. Sin salir de la misma plataforma.</h2>
+        </div>
+        <p class="head__lead">El error humano causa el 82% de los incidentes. No se corrige con una charla suelta: se corrige con un ciclo que se repite y deja rastro.</p>
+      </div>
+
+      <div class="steps reveal">
+        <ol class="steps__grid">
+          <li class="step">
+            <span class="step__node"><svg width="26" height="26" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <p class="step__no">01 · SIMULAMOS</p>
+            <h3>El ataque llega antes que el de verdad</h3>
+            <p>Campañas de phishing por correo, SMS y QR. Plantillas listas o correos escritos a mano imitando a vuestro RRHH, vuestro CEO o vuestros proveedores, con clones de vuestros propios logins.</p>
+            <ul class="step__tags"><li>+30 plantillas</li><li>Clones a medida</li></ul>
+          </li>
+          <li class="step">
+            <span class="step__node"><svg width="26" height="26" aria-hidden="true"><use href="#i-cap"/></svg></span>
+            <p class="step__no">02 · FORMAMOS</p>
+            <h3>Cada clic se convierte en una lección</h3>
+            <p>Píldoras en vídeo de pocos minutos con su test al final, charlas en directo para resolver dudas y módulos producidos a medida de vuestro sector.</p>
+            <ul class="step__tags"><li>Píldoras con test</li><li>Charlas en directo</li></ul>
+          </li>
+          <li class="step">
+            <span class="step__node"><svg width="26" height="26" aria-hidden="true"><use href="#i-chart"/></svg></span>
+            <p class="step__no">03 · MEDIMOS</p>
+            <h3>Y queda por escrito para la auditoría</h3>
+            <p>Quién picó, quién completó la formación y quién tiene su certificado, empleado por empleado. Lo gestionas tú desde el panel o lo gestionamos nosotros.</p>
+            <ul class="step__tags"><li>Informes en PDF</li><li>Gestión delegada</li></ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="note-strip reveal">
+        <span class="note-strip__icon"><svg width="20" height="20" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+        <div>
+          <h3 style="font-size:16px">Y otra vuelta al ciclo</h3>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg-body)">Campañas periódicas, contenido nuevo y certificados que se renuevan cada año. La concienciación no caduca en la memoria de tu equipo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== SIMULACIONES ====================== -->
+  <div class="slab-wrap">
+    <div class="wrap" style="padding:0 40px">
+      <section class="slab" id="simulaciones">
+        <div class="head reveal">
+          <div class="head__title">
+            <p class="eyebrow">Practica</p>
+            <h2>Más de 30 formas de ponerlos a prueba.</h2>
+          </div>
+          <p class="head__lead">Estos son los ataques que lanzamos, todos controlados y sin daños reales. Eliges uno del catálogo y sale en cinco minutos, o lo escribimos a medida de vuestra empresa.</p>
+        </div>
+
+        <div class="split reveal">
+          <ul class="kinds">
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-card"/></svg></span>
+              <h3>Phishing bancario</h3>
+              <p>Aviso de la entidad, verificación de cuenta y datos de tarjeta.</p>
+            </li>
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-clip"/></svg></span>
+              <h3>Adjunto con macros</h3>
+              <p>Facturas, nóminas y albaranes en Excel o PDF que nadie ha pedido.</p>
+            </li>
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <h3>SMS al móvil</h3>
+              <p>Paquetes retenidos, avisos de acceso y enlaces cortos al teléfono de empresa.</p>
+            </li>
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-qr"/></svg></span>
+              <h3>QR malicioso</h3>
+              <p>Códigos pegados en la oficina o impresos en una circular interna.</p>
+            </li>
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-lock"/></svg></span>
+              <h3>Reinicio de contraseña</h3>
+              <p>«Tu contraseña caduca hoy»: el clásico que sigue funcionando.</p>
+            </li>
+            <li class="kind">
+              <span class="icon-tile icon-tile--dark"><svg width="18" height="18" aria-hidden="true"><use href="#i-login"/></svg></span>
+              <h3>Vuestro login clonado</h3>
+              <p>VPN, intranet, nóminas o SharePoint, con un dominio parecido que compramos.</p>
+            </li>
+          </ul>
+
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <article class="mail" style="flex:1">
+              <div class="mail__bar">
+                <span class="label" style="display:inline-flex;align-items:center;gap:9px">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-inbox"/></svg>
+                  EJEMPLO REAL · CAMPAÑA DE ABRIL
+                </span>
+                <span class="mono" style="font-size:11px;color:var(--fg-muted)">Hoy · 14:32</span>
+              </div>
+
+              <div class="mail__body">
+                <h3 class="mail__subject">Factura de tu nómina de abril</h3>
+
+                <div class="mail__from">
+                  <span class="avatar" aria-hidden="true">LM</span>
+                  <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1">
+                    <span style="font-size:14px;font-weight:600">Laura Méndez <span style="font-weight:400;color:var(--fg-muted)">· Recursos Humanos</span></span>
+                    <span class="mono" style="font-size:12px;color:#44403c">rrhh@legiiearn.com</span>
+                  </span>
+                  <span style="font-size:12px;color:var(--fg-muted);align-self:flex-start;padding-top:3px">para mí</span>
+                </div>
+
+                <div class="mail__text">
+                  <p>Hola, Nerea:</p>
+                  <p>Adjunto la <strong>factura del ajuste salarial</strong> de este mes. Revísala y <span class="mail__bait">confirma tus datos bancarios antes del viernes</span> o el pago quedará bloqueado hasta el mes que viene.</p>
+                  <p>Gracias por adelantado.</p>
+                </div>
+
+                <div class="mail__sign">
+                  <span style="font-size:13px;font-weight:600">Laura Méndez</span>
+                  <span style="font-size:12px;color:var(--fg-muted)">Departamento de Recursos Humanos</span>
+                </div>
+
+                <div style="display:flex;flex-direction:column;gap:9px;margin-top:auto;padding-top:4px">
+                  <span class="label" style="font-size:10px;letter-spacing:.16em">1 ARCHIVO ADJUNTO</span>
+                  <div class="attach">
+                    <span class="attach__type" aria-hidden="true">XLS</span>
+                    <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                      <span style="font-size:13px;font-weight:600">Factura_Nomina_Abril_2026.xlsx</span>
+                      <span style="font-size:12px;color:var(--fg-muted)">Hoja de cálculo · 21 KB</span>
+                    </span>
+                    <svg width="17" height="17" style="color:var(--fg-faint)" aria-hidden="true"><use href="#i-down"/></svg>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <p class="caption">
+              <svg width="16" height="16" style="color:var(--amber);flex:0 0 auto;margin-top:2px" aria-hidden="true"><use href="#i-pen"/></svg>
+              Este correo no salió de una plantilla: lo escribimos imitando a vuestro departamento de RRHH, con su tono y su firma.
+            </p>
+          </div>
+        </div>
+
+        <div class="promo reveal">
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <p class="label" style="color:rgba(245,245,245,.55)">SERVICIO PREMIUM · INCLUIDO</p>
+            <h3>Si ninguna encaja, la escribimos a mano.</h3>
+            <p>Replicamos el estilo de vuestro RRHH, vuestro CEO, IT o los proveedores reales con los que trabajáis. El atacante no envía un genérico: envía lo que vuestros empleados ven cada día.</p>
+          </div>
+          <ul class="promo__chips">
+            <li class="chip chip--dark">Tono corporativo</li>
+            <li class="chip chip--dark">Firma del CEO</li>
+            <li class="chip chip--dark">Logo en el header</li>
+            <li class="chip chip--dark">Jerga interna</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ====================== FORMACIÓN ====================== -->
+  <section class="section" id="formacion">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head__title">
+          <p class="eyebrow">Aprende</p>
+          <h2>Un catálogo de píldoras de cuatro minutos.</h2>
+        </div>
+        <p class="head__lead">Vídeos cortos que caben entre dos reuniones, cada uno con su test. El empleado entra, ve el suyo y sigue con su trabajo; tú ves quién lo ha terminado.</p>
+      </div>
+
+      <div class="learn reveal">
+        <article class="card" style="overflow:hidden;display:flex;flex-direction:column">
+          <div class="player">
+            <p class="player__tag">PÍLDORA 01 · 4 MIN</p>
+            <span class="player__play"><svg width="25" height="25" style="color:var(--ink)" aria-hidden="true"><use href="#i-play"/></svg></span>
+            <div class="player__meta">
+              <span>Cómo reconocer un correo de phishing</span>
+              <span class="meter"><i style="width:32%"></i></span>
+            </div>
+          </div>
+          <div style="padding:24px 26px;display:flex;flex-direction:column;gap:16px;flex:1">
+            <h3 style="font-size:19px">Cada píldora acaba con su test</h3>
+            <p style="font-size:14px;line-height:1.65;color:var(--fg-body)">Dos o tres preguntas al final del vídeo que confirman que el contenido se ha entendido, no solo que se ha reproducido. Quien falla, repite.</p>
+            <ul style="display:flex;flex-wrap:wrap;gap:8px;margin-top:auto">
+              <li class="chip chip--mono">Subtítulos</li>
+              <li class="chip chip--mono">Móvil y escritorio</li>
+              <li class="chip chip--mono">Recordatorios automáticos</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card" style="overflow:hidden;display:flex;flex-direction:column">
+          <div class="mail__bar">
+            <span class="label">TU ITINERARIO · 5 PÍLDORAS</span>
+            <span class="mono num" style="font-size:11px;color:var(--fg-muted)">2 / 5 completadas</span>
+          </div>
+          <ul class="modules">
+            <li class="module">
+              <span class="module__state module__state--done"><svg width="14" height="14" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                <h3>Contraseñas y doble factor</h3>
+                <p>5 min · test superado</p>
+              </span>
+              <span class="badge badge--done">HECHA</span>
+            </li>
+            <li class="module">
+              <span class="module__state module__state--done"><svg width="14" height="14" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                <h3>Datos personales en tu día a día</h3>
+                <p>6 min · test superado</p>
+              </span>
+              <span class="badge badge--done">HECHA</span>
+            </li>
+            <li class="module module--now">
+              <span class="module__state module__state--now"><svg width="11" height="11" aria-hidden="true"><use href="#i-play"/></svg></span>
+              <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                <h3>Cómo reconocer un correo de phishing</h3>
+                <p style="color:var(--amber-deep)">4 min · te has quedado en el minuto 1:18</p>
+              </span>
+              <span class="badge badge--now">EN CURSO</span>
+            </li>
+            <li class="module">
+              <span class="module__state"></span>
+              <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                <h3 style="color:#44403c">Wi-Fi pública y teletrabajo</h3>
+                <p>4 min</p>
+              </span>
+            </li>
+            <li class="module">
+              <span class="module__state"></span>
+              <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
+                <h3 style="color:#44403c">Qué hacer si has picado</h3>
+                <p>3 min</p>
+              </span>
+            </li>
+          </ul>
+          <p style="display:flex;align-items:center;gap:13px;margin-top:auto;padding:20px 24px;background:var(--surface-2);border-top:1px solid var(--line-2)">
+            <span class="icon-tile" style="width:34px;height:34px"><svg width="17" height="17" aria-hidden="true"><use href="#i-pen"/></svg></span>
+            <span style="font-size:13px;line-height:1.55;color:var(--fg-body)">El catálogo completo entra en el Programa Anual, y producimos píldoras nuevas a medida de vuestro sector.</span>
+          </p>
+        </article>
+      </div>
+
+      <ul class="trio reveal">
+        <li class="card"><span class="icon-tile"><svg width="19" height="19" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <span><h3 style="font-size:15px">Charlas en directo</h3><p style="font-size:13px;line-height:1.5;color:var(--fg-body)">Para resolver lo que no quedó claro.</p></span>
+        </li>
+        <li class="card"><span class="icon-tile"><svg width="19" height="19" aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <span><h3 style="font-size:15px">Progreso por empleado</h3><p style="font-size:13px;line-height:1.5;color:var(--fg-body)">En tiempo real desde el panel.</p></span>
+        </li>
+        <li class="card"><span class="icon-tile"><svg width="19" height="19" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+          <span><h3 style="font-size:15px">Contenido que se renueva</h3><p style="font-size:13px;line-height:1.5;color:var(--fg-body)">Píldoras nuevas cada año.</p></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====================== CERTIFICADOS ====================== -->
+  <div class="slab-wrap">
+    <div class="wrap" style="padding:0 40px">
+      <section class="slab" id="certificados">
+        <div class="head reveal">
+          <div class="head__title">
+            <p class="eyebrow">Certifica</p>
+            <h2>Acreditaciones que valen dentro y fuera de tu empresa.</h2>
+          </div>
+          <p class="head__lead">Cada empleado que completa la formación recibe su certificado, verificable por QR. Para tu equipo es un reconocimiento; para ti, una evidencia lista para cualquier auditoría.</p>
+        </div>
+
+        <div class="split reveal">
+          <article class="cert">
+            <div class="cert__head">
+              <span class="brand" style="font-size:13px;letter-spacing:.12em">LEGI<span>LEARN</span></span>
+              <span class="mono" style="font-size:10px;letter-spacing:.16em;color:rgba(245,245,245,.42)">CERT · CYB-101</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <p class="mono" style="font-size:10px;letter-spacing:.22em;color:rgba(245,245,245,.5)">CERTIFICADO DE APROVECHAMIENTO</p>
+              <p class="cert__name">Nerea García Ruiz</p>
+              <p style="font-size:14px;color:rgba(245,245,245,.55)">ha completado con éxito la formación</p>
+            </div>
+            <p class="cert__course">Concienciación en Ciberseguridad</p>
+            <div class="cert__foot">
+              <span style="display:flex;flex-direction:column;gap:5px">
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">EMITIDO</span>
+                <span class="num" style="font-size:14px;font-weight:500">18 abril 2026</span>
+              </span>
+              <span style="display:flex;flex-direction:column;gap:5px">
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">PUNTUACIÓN</span>
+                <span class="num" style="font-size:14px;font-weight:600;color:var(--amber)">94 / 100</span>
+              </span>
+              <span style="display:flex;flex-direction:column;gap:5px;align-items:flex-end">
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">VERIFICACIÓN</span>
+                <svg width="62" height="62" viewBox="0 0 64 64" style="background:#fff;border-radius:7px;padding:4px" role="img" aria-label="Código QR de verificación del certificado">
+                  <rect x="4" y="4" width="16" height="16" fill="none" stroke="#0A0A0B" stroke-width="4"/>
+                  <rect x="44" y="4" width="16" height="16" fill="none" stroke="#0A0A0B" stroke-width="4"/>
+                  <rect x="4" y="44" width="16" height="16" fill="none" stroke="#0A0A0B" stroke-width="4"/>
+                  <rect x="26" y="6" width="5" height="5"/><rect x="33" y="12" width="5" height="5"/><rect x="26" y="19" width="5" height="5"/>
+                  <rect x="6" y="26" width="5" height="5"/><rect x="13" y="33" width="5" height="5"/><rect x="26" y="26" width="5" height="5"/>
+                  <rect x="33" y="33" width="5" height="5"/><rect x="40" y="26" width="5" height="5"/><rect x="47" y="33" width="5" height="5"/>
+                  <rect x="26" y="40" width="5" height="5"/><rect x="40" y="47" width="5" height="5"/><rect x="33" y="54" width="5" height="5"/>
+                  <rect x="47" y="47" width="5" height="5"/><rect x="54" y="40" width="5" height="5"/>
+                </svg>
+              </span>
+            </div>
+          </article>
+
+          <ul class="feature-list">
+            <li class="feature">
+              <span class="icon-tile icon-tile--dark" style="width:42px;height:42px;border-radius:11px"><svg width="20" height="20" aria-hidden="true"><use href="#i-doc"/></svg></span>
+              <span><h3 style="font-size:17px">Evidencia para tus auditorías</h3><p>Demuestra ante ENS, NIS2 o ISO 27001 que tu equipo ha recibido la formación obligatoria.</p></span>
+            </li>
+            <li class="feature">
+              <span class="icon-tile icon-tile--dark" style="width:42px;height:42px;border-radius:11px"><svg width="20" height="20" aria-hidden="true"><use href="#i-qr"/></svg></span>
+              <span><h3 style="font-size:17px">Verificable al instante</h3><p>Cada certificado lleva un QR único: cualquier cliente o auditor comprueba su autenticidad en segundos.</p></span>
+            </li>
+            <li class="feature">
+              <span class="icon-tile icon-tile--dark" style="width:42px;height:42px;border-radius:11px"><svg width="20" height="20" aria-hidden="true"><use href="#i-refresh"/></svg></span>
+              <span><h3 style="font-size:17px">Se renueva cada año</h3><p>Caduca al año y se renueva con los contenidos actualizados, para que la formación nunca quede desfasada.</p></span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ====================== CUMPLIMIENTO ====================== -->
+  <section class="section--sand" id="cumplimiento">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head__title">
+          <p class="eyebrow">Cumplimiento</p>
+          <h2>Seis normativas te obligan a formar. Las seis, cubiertas.</h2>
+        </div>
+        <p class="head__lead">Cada una lo llama de una manera —concienciación, formación, programa de sensibilización— pero todas piden lo mismo: que demuestres que tu plantilla está formada. Esto es lo que cubre LegiLearn de cada una.</p>
+      </div>
+
+      <ul class="matrix reveal">
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">ENS</span><br><span class="norm__scope">España · Sector público</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Esquema Nacional de Seguridad. Obliga a un plan de concienciación continuo para todo el personal con acceso a sistemas.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Registro de formación por empleado</span></div>
+        </li>
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">NIS2</span><br><span class="norm__scope">UE · Sector esencial</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Directiva europea de ciberseguridad. Exige formación periódica, y responsabiliza personalmente a la dirección de que ocurra.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Informe periódico con fechas</span></div>
+        </li>
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">ISO 27001</span><br><span class="norm__scope">Internacional</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Gestión de la seguridad de la información. El control 6.3 pide concienciación y formación con evidencia auditable.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Evidencias firmadas y con fecha</span></div>
+        </li>
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">RGPD</span><br><span class="norm__scope">UE · Datos personales</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Protección de datos. Pide formar a quien trata datos personales y poder demostrarlo ante la agencia.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Certificados individuales</span></div>
+        </li>
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">DORA</span><br><span class="norm__scope">UE · Sector financiero</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Resiliencia operativa digital. Incluye la concienciación en seguridad como parte del marco de gestión de riesgos TIC.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Resultados de las simulaciones</span></div>
+        </li>
+        <li class="card card--hover norm">
+          <div class="norm__head">
+            <span><span class="norm__code">PCI DSS</span><br><span class="norm__scope">Global · Medios de pago</span></span>
+            <span class="norm__ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </div>
+          <p>Seguridad en medios de pago. Obliga a un programa de concienciación anual para todo el personal implicado.</p>
+          <div class="norm__out"><span class="label" style="font-size:9.5px;letter-spacing:.16em">LO QUE ENTREGAS</span><span>Programa anual documentado</span></div>
+        </li>
+      </ul>
+
+      <div class="matrix-foot reveal">
+        <div class="card">
+          <span class="icon-tile" style="width:42px;height:42px;border-radius:11px"><svg width="20" height="20" aria-hidden="true"><use href="#i-globe"/></svg></span>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <h3 style="font-size:15px">También en Latinoamérica</h3>
+            <ul style="display:flex;flex-wrap:wrap;gap:7px">
+              <li class="chip chip--mono">MX · LFPDPPP</li>
+              <li class="chip chip--mono">BR · LGPD</li>
+              <li class="chip chip--mono">CO · Ley 1581</li>
+              <li class="chip chip--mono">AR · Ley 25.326</li>
+              <li class="chip chip--mono">CL · Ley 21.719</li>
+              <li class="chip chip--mono">PE · Ley 29733</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dark">
+          <span class="icon-tile icon-tile--dark" style="width:42px;height:42px;border-radius:11px"><svg width="20" height="20" aria-hidden="true"><use href="#i-doc"/></svg></span>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <h3 style="font-size:15px;color:var(--ink-fg)">Todo sale en un PDF firmado</h3>
+            <p>Con marca de tiempo, trazabilidad por empleado y equipo, y verificable por QR. Dos clics el día que llame el auditor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PRECIOS ====================== -->
+  <section class="section" id="precios">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head__title">
+          <p class="eyebrow">Planes</p>
+          <h2>Un plan para cada necesidad.</h2>
+        </div>
+        <p class="head__lead">Desde un pack puntual para empezar hasta el programa anual completo, con formación, simulaciones de phishing e informes de cumplimiento. Si solo necesitas una parte, preparamos un presupuesto a medida.</p>
+      </div>
+
+      <div class="plans reveal">
+        <article class="card card--hover plan">
+          <h3 class="plan__name">Starter Pack</h3>
+          <p class="plan__price num"><span>Desde</span><b>290 €</b></p>
+          <p class="plan__unit">pago único · sin permanencia</p>
+          <p class="plan__note">Ideal para probar el servicio</p>
+          <ul class="plan__features">
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>3 píldoras formativas con test</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>1 campaña de phishing</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Informe de resultados</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Acceso al panel de control</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="#contacto">Empezar ahora</a>
+        </article>
+
+        <article class="plan plan--featured">
+          <p class="plan__flag">Más completo</p>
+          <h3 class="plan__name">Programa Anual</h3>
+          <p class="plan__price num"><span>Desde</span><b>15 €</b></p>
+          <p class="plan__unit">/ empleado / año</p>
+          <ul class="plan__features">
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Acceso al catálogo completo de píldoras</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Campañas de phishing periódicas</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Charlas formativas en directo</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Informes de cumplimiento (ENS, NIS2, ISO)</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Panel multiusuario para tus admins</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Soporte prioritario</li>
+          </ul>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <a class="btn btn--amber btn--block" href="#contacto">Solicitar demo</a>
+            <p class="plan__small">Facturación anual · alta en 48 h</p>
+          </div>
+        </article>
+
+        <article class="card card--hover plan">
+          <h3 class="plan__name">A medida</h3>
+          <p class="plan__price"><b>Presupuesto</b></p>
+          <p class="plan__unit">sin compromiso</p>
+          <ul class="plan__features">
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Solo phishing, solo formación o todo</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Píldoras y simulaciones personalizadas</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Clones a medida de vuestros logins</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Contenido formativo bajo demanda</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Gestión delegada: lo llevamos nosotros</li>
+            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Soporte dedicado</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="#contacto">Pedir presupuesto</a>
+        </article>
+      </div>
+
+      <div class="custom reveal">
+        <div class="custom__body">
+          <span class="icon-tile" style="width:46px;height:46px;border-radius:12px"><svg width="22" height="22" aria-hidden="true"><use href="#i-puzzle"/></svg></span>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <h3>¿Necesitas algo diferente? Lo adaptamos.</h3>
+            <p>Contrata solo campañas de phishing, solo formación, o monta un paquete a medida. También creamos módulos de formación específicos para tu sector, protocolos o amenazas concretas. Tú nos cuentas y nosotros producimos.</p>
+          </div>
+        </div>
+        <a class="btn btn--dark" href="#contacto">Hablar con ventas <svg width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== TESTIMONIOS ====================== -->
+  <section class="section--sand" id="clientes" style="padding-inline:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head__title">
+          <p class="eyebrow">Historias reales</p>
+          <h2>Empresas que dejaron de temer un lunes por la mañana.</h2>
+        </div>
+        <p class="head__lead">Responsables de IT, RRHH y cumplimiento que ya han pasado por el programa completo y por su primera auditoría con él.</p>
+      </div>
+    </div>
+
+    <div class="quotes">
+      <ul class="quotes__track">
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Pasamos de un 24% de clic en phishing a un 3% en cuatro meses. Y sin quejas: el contenido es breve y directo.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">AC</span><span><span style="display:block;font-size:14px;font-weight:600">Alejandro Cano</span><span style="font-size:12px;color:var(--fg-muted)">Director · Legitec</span></span></figcaption>
+        </figure></li>
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>La plataforma es tan intuitiva que nuestro equipo de RRHH la gestiona sin depender de IT. Vale cada euro.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">VG</span><span><span style="display:block;font-size:14px;font-weight:600">Víctor González López</span><span style="font-size:12px;color:var(--fg-muted)">Responsable de Operaciones · NaviLens</span></span></figcaption>
+        </figure></li>
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Nos ayudó a superar la auditoría ENS en tiempo récord. Los informes son exactamente lo que pedía el auditor.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">VS</span><span><span style="display:block;font-size:14px;font-weight:600">Vicente Seiquer</span><span style="font-size:12px;color:var(--fg-muted)">Responsable de IT · Tranvía de Murcia</span></span></figcaption>
+        </figure></li>
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Los recordatorios automáticos han sido un cambio total. El ratio de finalización subió del 40% al 91% en un trimestre.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">JP</span><span><span style="display:block;font-size:14px;font-weight:600">José Antonio Paredes</span><span style="font-size:12px;color:var(--fg-muted)">Dirección · Cementos La Cruz</span></span></figcaption>
+        </figure></li>
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Produjeron módulos a medida para nuestro equipo. Los empleados los sienten propios, no como formación corporativa genérica.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">MJ</span><span><span style="display:block;font-size:14px;font-weight:600">Marta Jiménez</span><span style="font-size:12px;color:var(--fg-muted)">Responsable · Fundación Aspacia</span></span></figcaption>
+        </figure></li>
+        <li><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Tranquilidad absoluta para pasar la ISO 27001. Toda la trazabilidad que pedía el auditor la tuvimos en PDF con dos clics.</blockquote>
+          <figcaption><span class="quote__avatar" aria-hidden="true">CM</span><span><span style="display:block;font-size:14px;font-weight:600">Carlos Malatesta</span><span style="font-size:12px;color:var(--fg-muted)">Compliance Officer · Monbus</span></span></figcaption>
+        </figure></li>
+
+        <!-- duplicado para el bucle continuo -->
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Pasamos de un 24% de clic en phishing a un 3% en cuatro meses. Y sin quejas: el contenido es breve y directo.</blockquote>
+          <figcaption><span class="quote__avatar">AC</span><span><span style="display:block;font-size:14px;font-weight:600">Alejandro Cano</span><span style="font-size:12px;color:var(--fg-muted)">Director · Legitec</span></span></figcaption>
+        </figure></li>
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>La plataforma es tan intuitiva que nuestro equipo de RRHH la gestiona sin depender de IT. Vale cada euro.</blockquote>
+          <figcaption><span class="quote__avatar">VG</span><span><span style="display:block;font-size:14px;font-weight:600">Víctor González López</span><span style="font-size:12px;color:var(--fg-muted)">Responsable de Operaciones · NaviLens</span></span></figcaption>
+        </figure></li>
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Nos ayudó a superar la auditoría ENS en tiempo récord. Los informes son exactamente lo que pedía el auditor.</blockquote>
+          <figcaption><span class="quote__avatar">VS</span><span><span style="display:block;font-size:14px;font-weight:600">Vicente Seiquer</span><span style="font-size:12px;color:var(--fg-muted)">Responsable de IT · Tranvía de Murcia</span></span></figcaption>
+        </figure></li>
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Los recordatorios automáticos han sido un cambio total. El ratio de finalización subió del 40% al 91% en un trimestre.</blockquote>
+          <figcaption><span class="quote__avatar">JP</span><span><span style="display:block;font-size:14px;font-weight:600">José Antonio Paredes</span><span style="font-size:12px;color:var(--fg-muted)">Dirección · Cementos La Cruz</span></span></figcaption>
+        </figure></li>
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Produjeron módulos a medida para nuestro equipo. Los empleados los sienten propios, no como formación corporativa genérica.</blockquote>
+          <figcaption><span class="quote__avatar">MJ</span><span><span style="display:block;font-size:14px;font-weight:600">Marta Jiménez</span><span style="font-size:12px;color:var(--fg-muted)">Responsable · Fundación Aspacia</span></span></figcaption>
+        </figure></li>
+        <li aria-hidden="true"><figure class="quote">
+          <svg width="24" height="24" style="color:var(--amber)" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>Tranquilidad absoluta para pasar la ISO 27001. Toda la trazabilidad que pedía el auditor la tuvimos en PDF con dos clics.</blockquote>
+          <figcaption><span class="quote__avatar">CM</span><span><span style="display:block;font-size:14px;font-weight:600">Carlos Malatesta</span><span style="font-size:12px;color:var(--fg-muted)">Compliance Officer · Monbus</span></span></figcaption>
+        </figure></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====================== CONTACTO ====================== -->
+  <section class="contact" id="contacto">
+    <div class="wrap contact__grid">
+      <div class="contact__col reveal">
+        <p class="gift">
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-gift"/></svg>
+          Primera campaña de phishing <strong>GRATIS</strong>
+        </p>
+        <h2>Prueba LegiLearn en tu empresa.</h2>
+        <p style="font-size:16px;line-height:1.65;color:var(--fg-body)">Te preparamos una demo guiada y lanzamos una campaña de phishing a tu equipo, sin coste ni compromiso. Descubre en una semana dónde están tus puntos ciegos.</p>
+        <ul style="display:flex;flex-direction:column;gap:13px;padding-top:4px">
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Demo personalizada de 20 min</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Campaña de phishing con resultados reales</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Informe de vulnerabilidad detallado</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Sin tarjeta. Sin permanencia.</li>
+        </ul>
+        <div class="owner">
+          <span class="owner__avatar" aria-hidden="true">EP</span>
+          <p>
+            <span style="display:block;font-size:14px;font-weight:600;line-height:1.4">Eduardo Pérez · Encargado del departamento de Concienciación</span>
+            <span style="font-size:12px;color:var(--fg-muted)"><a href="mailto:eperez@legitec.com" style="color:var(--amber-deep);font-weight:500">eperez@legitec.com</a> · te responde en menos de 24 h laborables</span>
+          </p>
+        </div>
+      </div>
+
+      <form class="form reveal" id="form-demo" action="/api/contact" method="post" novalidate>
+        <div class="form__body">
+          <div>
+            <h2 style="font-size:22px;letter-spacing:-.028em">Solicita tu demo</h2>
+            <p style="font-size:13px;color:var(--fg-muted);margin-top:6px">Rellena el formulario y prepararemos tu prueba gratuita.</p>
+          </div>
+
+          <div class="form__grid">
+            <label class="field"><span>Nombre</span>
+              <input type="text" name="first" autocomplete="given-name" placeholder="Nerea" required>
+            </label>
+            <label class="field"><span>Apellido</span>
+              <input type="text" name="last" autocomplete="family-name" placeholder="García">
+            </label>
+            <label class="field"><span>Email corporativo</span>
+              <input type="email" name="email" autocomplete="email" placeholder="nerea@empresa.com" required>
+            </label>
+            <label class="field"><span>Teléfono</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+34 600 000 000">
+            </label>
+            <label class="field field--wide"><span>Empresa</span>
+              <input type="text" name="company" autocomplete="organization" placeholder="Legitec S.L." required>
+            </label>
+            <label class="field"><span>Nº empleados</span>
+              <select name="employees">
+                <option>1–50</option><option>50–100</option><option>100–300</option>
+                <option>300–500</option><option>500–1.000</option><option>Más de 1.000</option>
+              </select>
+            </label>
+            <label class="field"><span>Sector</span>
+              <select name="sector">
+                <option>Tecnología</option><option>Banca / Finanzas</option><option>Salud</option>
+                <option>Industria</option><option>Administración pública</option><option>Otro</option>
+              </select>
+            </label>
+            <label class="field field--wide"><span>Cuéntanos qué buscas (opcional)</span>
+              <textarea name="message" rows="3" placeholder="Ej. Preparar a mi equipo para la auditoría NIS2 del próximo trimestre…"></textarea>
+            </label>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            <span>Acepto la <a href="#" rel="nofollow">política de privacidad</a> y recibir información sobre LegiLearn.</span>
+          </label>
+
+          <div class="form__foot">
+            <button class="btn btn--dark btn--block btn--lg" type="submit" data-submit>
+              Pedir demo + campaña gratis
+              <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+            <p class="form__status" data-status role="status" aria-live="polite"></p>
+            <p class="form__alt">O escribe a <a href="mailto:eperez@legitec.com">eperez@legitec.com</a></p>
+          </div>
+        </div>
+
+        <div class="form__done">
+          <span class="icon-tile" style="width:56px;height:56px;border-radius:999px;background:var(--green-soft);color:var(--green-deep)">
+            <svg width="26" height="26" style="stroke-width:2.6" aria-hidden="true"><use href="#i-check"/></svg>
+          </span>
+          <h2 style="font-size:22px">¡Gracias!</h2>
+          <p style="font-size:14px;line-height:1.6;color:var(--fg-body);max-width:360px">Hemos recibido tu petición. Te escribimos en las próximas 24 h laborables para coordinar tu demo y tu campaña gratuita.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="footer__slab">
+    <div class="wrap footer__top">
+      <div>
+        <a class="brand" href="#inicio">Legi<span>Learn</span></a>
+        <p style="font-size:14px;color:rgba(245,245,245,.5);margin-top:16px">Un servicio de Legitec Ciberseguridad S.L.</p>
+        <nav class="footer__links" aria-label="Secciones">
+          <a class="nav__link" href="#simulaciones">Simulaciones</a>
+          <a class="nav__link" href="#formacion">Formación</a>
+          <a class="nav__link" href="#certificados">Certificación</a>
+          <a class="nav__link" href="#cumplimiento">Cumplimiento</a>
+          <a class="nav__link" href="#precios">Precios</a>
+        </nav>
+      </div>
+      <address class="footer__contact" style="font-style:normal">
+        <span class="mono" style="font-size:10px;letter-spacing:.2em;color:rgba(245,245,245,.4);margin-bottom:4px">LEGITEC CIBERSEGURIDAD S.L.</span>
+        <span>Avenida de los Rectores, 2-4 bajo · 30100 Murcia</span>
+        <a class="nav__link num" href="tel:+34722462552">+34 722 462 552</a>
+        <a class="nav__link" href="mailto:eperez@legitec.com">eperez@legitec.com</a>
+      </address>
+    </div>
+    <div class="footer__legal">
+      <div class="wrap">
+        <span>© 2026 Legitec Ciberseguridad S.L. · Todos los derechos reservados</span>
+        <ul>
+          <li><a class="nav__link" href="#">Política de privacidad</a></li>
+          <li><a class="nav__link" href="#">Aviso legal</a></li>
+          <li><a class="nav__link" href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js" defer></script>
 </body>
 </html>

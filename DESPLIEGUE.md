@@ -52,7 +52,7 @@ correo a `eperez@legitec.com`.
   enviar correos a la dirección con la que te registraste. Como el
   formulario envía precisamente a `eperez@legitec.com`, funciona sin más.
 - **Para profesionalizarlo más adelante:** en Resend → **Domains**, verifica
-  un dominio propio (p. ej. `legitec.com` o `concienciaciber.com`) añadiendo
+  un dominio propio (p. ej. `legitec.com` o `legilearn.com`) añadiendo
   los registros DNS que te indiquen. Luego define la variable `CONTACT_FROM`
-  con algo como `ConcienciaCiber <web@concienciaciber.com>`. Así los correos
+  con algo como `LegiLearn <web@legilearn.com>`. Así los correos
   saldrán desde tu dominio y podrás enviar a cualquier destinatario.
