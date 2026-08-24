@@ -178,6 +178,10 @@ input, select, textarea { font: inherit; color: inherit; }
   margin-bottom: 44px;
 }
 .head__title { display: flex; flex-direction: column; gap: 18px; }
+/* Entradilla de las franjas de llamada a la acción. Antes iba en un style
+   inline repetido en cada página, que además se saltaba el justificado. */
+.lead-copy { font-size: 16px; line-height: 1.65; color: var(--fg-body); }
+
 .head__lead {
   max-width: 520px;
   padding-bottom: 4px;
@@ -292,6 +296,13 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   background: var(--tint);
   color: var(--fg-body);
 }
+/* Grupos de etiquetas en rejilla en lugar de flujo libre: así no queda
+   nunca una fila coja con un solo elemento suelto. */
+.chip-grid { display: grid; gap: 8px; }
+.chip-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.chip-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.chip-grid .chip { justify-content: center; text-align: center; }
+
 .chip--dark {
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: none;
@@ -439,12 +450,12 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 
 .shot {
   position: relative;
-  padding: 54px 44px 0;
+  padding: 54px 44px 88px;
 }
 .shot__frame {
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 0;
-  border-radius: 14px 14px 0 0;
+  border-radius: 14px;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   background: #fff;
 }
@@ -474,7 +485,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 }
 .float--light {
   left: 10px;
-  bottom: 96px;
+  bottom: 184px;
   background: #fff;
   border: 1px solid var(--line);
   display: flex;
@@ -758,7 +769,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 }
 .promo h3 { font-size: 25px; letter-spacing: -0.03em; }
 .promo p { font-size: 14px; line-height: 1.6; color: var(--ink-text); max-width: 560px; }
-.promo__chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; max-width: 400px; }
+.promo__chips { max-width: 400px; }
 
 /* 5.6 Formación ---------------------------------------------------------- */
 .learn { display: grid; grid-template-columns: 1.06fr 0.94fr; gap: 20px; align-items: stretch; }
@@ -1218,6 +1229,44 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 }
 .footer__legal ul { display: flex; flex-wrap: wrap; gap: 20px; }
 
+
+/* Texto de cuerpo justificado.
+   Va con partición de palabras activada a propósito: justificar sin partir
+   abre "ríos" de espacio en cuanto la columna se estrecha, y ahí el remedio
+   es peor que la enfermedad. Como <html> declara lang="es", el navegador
+   parte en español.
+
+   Se escribe con :where() para que no tenga especificidad: cualquier regla
+   de componente que ya centre su texto (los pasos, la letra pequeña de los
+   planes, los pies de foto) sigue mandando sobre esto. */
+:where(
+  .head__lead,
+  .lead-copy,
+  .page-hero__lead,
+  .promo p,
+  .contact__col p,
+  .card p,
+  .kind p,
+  .module p,
+  .feature p,
+  .matrix li p,
+  .custom__body p,
+  .note-strip p,
+  .dark > div > p,
+  .caption,
+  .post-card__body p,
+  .article__lead,
+  .quote blockquote,
+  .article p,
+  .prose p,
+  .prose li
+) {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+}
+
 /* --------------------------------------------------------------------------
    6. Animaciones
    -------------------------------------------------------------------------- */
@@ -1305,11 +1354,12 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .steps::before { display: none; }
 
   .float { display: none; }
-  .shot { padding: 40px 0 0; }
+  .shot { padding: 40px 0 56px; }
   .hero { padding-top: 56px; }
 
   .promo, .custom, .matrix-foot > * { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .promo__chips { justify-content: flex-start; max-width: none; }
+  .promo { align-items: stretch; }
+  .promo__chips { max-width: none; }
   .footer__top { flex-direction: column; gap: 32px; }
   /* objetivos táctiles de 44px en los enlaces del pie */
   .footer__links { gap: 4px 22px; }
@@ -1321,6 +1371,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 @media (max-width: 640px) {
   :root { --gutter: 20px; }
+  .chip-grid--2 { grid-template-columns: 1fr; }
+  .chip-grid--3 { grid-template-columns: repeat(2, 1fr); }
   /* Sólo el icono: el nombre de la marca y el menú necesitan el ancho. */
   .nav__login span { display: none; }
   .nav__login { padding: 0; width: 44px; justify-content: center; }
