@@ -33,7 +33,7 @@
   set('meta[name="twitter:description"]', 'content', post.excerpt);
   set('meta[name="twitter:image"]', 'content', post.img);
   set('meta[property="og:type"]', 'content', 'article');
-  const canonical = `https://www.legilearn.com/post.html?p=${post.slug}`;
+  const canonical = `https://web.legilearn.com/post.html?p=${post.slug}`;
   set('link[rel="canonical"]', 'href', canonical);
   set('meta[property="og:url"]', 'content', canonical);
 
@@ -48,7 +48,7 @@
     image: post.img,
     url: canonical,
     author: { '@type': 'Organization', name: post.author },
-    publisher: { '@type': 'Organization', name: 'LegiLearn', url: 'https://www.legilearn.com/' },
+    publisher: { '@type': 'Organization', name: 'LegiLearn', url: 'https://web.legilearn.com/' },
     mainEntityOfPage: canonical,
   });
   document.head.appendChild(ld);

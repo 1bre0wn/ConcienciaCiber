@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.legilearn.com/sitemap.xml
+Sitemap: https://web.legilearn.com/sitemap.xml

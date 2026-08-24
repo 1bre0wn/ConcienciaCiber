@@ -155,6 +155,8 @@ input, select, textarea { font: inherit; color: inherit; }
 
 /* Bloque oscuro embebido en la página (Simulaciones, Certificados). */
 .slab-wrap { padding-block: 92px 0; }
+/* La losa se separa un poco más del borde que el resto de secciones. */
+.wrap--slab { padding-inline: 40px; }
 .slab {
   border-radius: var(--radius-slab);
   background: var(--ink);
@@ -162,6 +164,9 @@ input, select, textarea { font: inherit; color: inherit; }
   padding: 84px var(--gutter);
 }
 .slab h2, .slab h3, .slab h4 { color: var(--ink-fg); }
+
+/* Sin esto las columnas no bajan de su ancho mínimo y desbordan en móvil. */
+.split > * { min-width: 0; }
 
 /* Cabecera de sección: título a la izquierda, entradilla a la derecha. */
 .head {
@@ -369,6 +374,28 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 .nav__link:hover, .nav__link:focus-visible { color: #fff; }
 .nav__actions { display: flex; align-items: center; gap: 18px; }
 .nav__cta-m { display: none; }
+/* Acceso de clientes: la plataforma vive en legilearn.com, la web en
+   web.legilearn.com, así que el enlace de entrada tiene que estar siempre
+   visible — también en móvil, donde el resto de botones se pliegan. */
+.nav__login {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: var(--ink-fg);
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color 0.22s, background-color 0.22s;
+}
+.nav__login:hover, .nav__login:focus-visible {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .nav__toggle {
   display: none;
   width: 44px;
@@ -1214,6 +1241,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .nav__links { display: none; }
   .nav__toggle { display: inline-flex; }
   .nav__actions .btn { display: none; }
+  .nav__actions { gap: 10px; }
+  .nav__login { padding: 0 13px; }
   .nav[data-open="true"] .nav__links {
     position: absolute;
     left: 0; right: 0;
@@ -1242,6 +1271,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .head__lead { max-width: none; }
 
   .split, .learn, .contact__grid, .matrix-foot { grid-template-columns: 1fr; }
+  .wrap--slab { padding-inline: var(--gutter); }
   .matrix { grid-template-columns: 1fr 1fr; }
   .plans { grid-template-columns: 1fr; }
   .plan--featured { margin-block: 0; }
@@ -1267,6 +1297,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 
 @media (max-width: 640px) {
   :root { --gutter: 20px; }
+  /* Sólo el icono: el nombre de la marca y el menú necesitan el ancho. */
+  .nav__login span { display: none; }
+  .nav__login { padding: 0; width: 44px; justify-content: center; }
   .form { padding: 24px; }
   .form__grid { grid-template-columns: 1fr; }
   .field--wide { grid-column: auto; }
