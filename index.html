@@ -116,35 +116,39 @@
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<!-- Sprite de iconos: se usa con <use href="#i-…"> -->
-<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
-  <symbol id="i-play-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5Z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-  <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M3 13h5l1.5 2.5h5L16 13h5"/></symbol>
-  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
-  <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 11.1 12.3 20a5.5 5.5 0 0 1-7.8-7.8l9-8.9a3.7 3.7 0 0 1 5.2 5.2l-9 9a1.8 1.8 0 0 1-2.6-2.6l8.3-8.2"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="19" x="6" y="2.5" rx="2.5"/><path d="M11 19h2"/></symbol>
-  <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="6" height="6" x="3" y="3" rx="1"/><rect width="6" height="6" x="15" y="3" rx="1"/><rect width="6" height="6" x="3" y="15" rx="1"/><path d="M15 15h2v2h-2z"/><path d="M19 19h2v2h-2z"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
-  <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="5" rx="2"/><path d="M3 9h18"/><path d="M9 14h6"/></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
-  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 10.6V16c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5.4"/></symbol>
-  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 15 4-4 4 4 5-6"/></symbol>
-  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
-  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
-  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></symbol>
-  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
-  <symbol id="i-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 9a2 2 0 0 0-2-2h-1.6V5.4a2.4 2.4 0 1 0-4.8 0V7H9.4a2 2 0 0 0-2 2v1.6H5.8a2.4 2.4 0 1 0 0 4.8h1.6V17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2Z"/></symbol>
-  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="7" rx="1"/><path d="M12 22V7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M7.5 7a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
-  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></symbol>
-  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
-  <symbol id="i-quote" viewBox="0 0 32 32" fill="currentColor"><path d="M10 18V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6zm10 0V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6z"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+<!-- Sprite de iconos: se usa con <use href="#i-…">.
+     Generado por build-iconos.mjs a partir de Lucide 0.544.0 (licencia ISC).
+     No editar a mano: un grosor de línea único es lo que mantiene el juego
+     coherente, y retocar un icono suelto es justo lo que lo rompe. -->
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" /></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16" /> <path d="M4 12h16" /> <path d="M4 19h16" /></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18" /> <path d="m6 6 12 12" /></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24"><path d="m10 17 5-5-5-5" /> <path d="M15 12H3" /> <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /> <rect x="2" y="4" width="20" height="16" rx="2" /></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12" /> <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" /></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" /></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /> <path d="M14 2v4a2 2 0 0 0 2 2h4" /> <path d="M10 9H8" /> <path d="M16 13H8" /> <path d="M16 17H8" /></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551" /></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M13 5h8" /> <path d="M13 12h8" /> <path d="M13 19h8" /> <path d="m3 17 2 2 4-4" /> <path d="m3 7 2 2 4-4" /></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /> <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" /></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect width="5" height="5" x="3" y="3" rx="1" /> <rect width="5" height="5" x="16" y="3" rx="1" /> <rect width="5" height="5" x="3" y="16" rx="1" /> <path d="M21 16h-3a2 2 0 0 0-2 2v3" /> <path d="M21 21v.01" /> <path d="M12 7v3a2 2 0 0 1-2 2H7" /> <path d="M3 12h.01" /> <path d="M12 3h.01" /> <path d="M12 16v.01" /> <path d="M16 12h1" /> <path d="M21 12v.01" /> <path d="M12 21v-1" /></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2" /> <line x1="2" x2="22" y1="10" y2="10" /></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" /> <path d="M22 10v6" /> <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16" /> <path d="M18 17V9" /> <path d="M13 17V5" /> <path d="M8 17v-3" /></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="M16 7h6v6" /> <path d="m22 7-8.5 8.5-5-5L2 17" /></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /> <path d="M21 3v5h-5" /> <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /> <path d="M8 16H3v5" /></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" /> <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /> <path d="M2 12h20" /></symbol>
+  <symbol id="i-puzzle" viewBox="0 0 24 24"><path d="M15.39 4.39a1 1 0 0 0 1.68-.474 2.5 2.5 0 1 1 3.014 3.015 1 1 0 0 0-.474 1.68l1.683 1.682a2.414 2.414 0 0 1 0 3.414L19.61 15.39a1 1 0 0 1-1.68-.474 2.5 2.5 0 1 0-3.014 3.015 1 1 0 0 1 .474 1.68l-1.683 1.682a2.414 2.414 0 0 1-3.414 0L8.61 19.61a1 1 0 0 0-1.68.474 2.5 2.5 0 1 1-3.014-3.015 1 1 0 0 0 .474-1.68l-1.683-1.682a2.414 2.414 0 0 1 0-3.414L4.39 8.61a1 1 0 0 1 1.68.474 2.5 2.5 0 1 0 3.014-3.015 1 1 0 0 1-.474-1.68l1.683-1.682a2.414 2.414 0 0 1 3.414 0z" /></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1" /> <path d="M12 8v13" /> <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /> <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" /></symbol>
+  <symbol id="i-play-circle" viewBox="0 0 24 24"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /> <circle cx="12" cy="12" r="10" /></symbol>
+  <symbol id="i-quote" viewBox="0 0 32 32" fill="currentColor" stroke="none"><path d="M10 18V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6zm10 0V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21"/></symbol>
 </svg>
 
 <!-- ====================== NAVEGACIÓN ====================== -->
@@ -251,8 +255,10 @@
 
   <!-- ====================== CLIENTES ====================== -->
   <section class="clients" aria-label="Empresas que han confiado en LegiLearn">
-    <p class="clients__title">Empresas que han <em>confiado en nosotros</em></p>
-    <div class="logos">
+    <div class="wrap">
+      <div class="clients__panel">
+        <p class="clients__title">Empresas que han <em>confiado en nosotros</em></p>
+        <div class="logos">
       <ul class="logos__track">
         <li><img src="uploads/logos/prinex.webp" alt="Prinex" width="176" height="56" decoding="async"></li>
         <li><img src="uploads/logos/anekke.png" alt="Anekke" width="176" height="56" decoding="async"></li>
@@ -272,7 +278,9 @@
         <li aria-hidden="true"><img src="uploads/logos/mesa-del-castillo.png" alt="" width="176" height="56" decoding="async"></li>
         <li aria-hidden="true"><img src="uploads/logos/navilens.webp" alt="" width="176" height="56" decoding="async"></li>
         <li aria-hidden="true"><img src="uploads/logos/stel-order.png" alt="" width="176" height="56" decoding="async"></li>
-      </ul>
+        </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -481,7 +489,7 @@
           </div>
           <ul class="modules">
             <li class="module">
-              <span class="module__state module__state--done"><svg width="14" height="14" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <span class="module__state module__state--done"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
               <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
                 <h3>Contraseñas y doble factor</h3>
                 <p>5 min · test superado</p>
@@ -489,7 +497,7 @@
               <span class="badge badge--done">HECHA</span>
             </li>
             <li class="module">
-              <span class="module__state module__state--done"><svg width="14" height="14" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>
+              <span class="module__state module__state--done"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
               <span style="display:flex;flex-direction:column;gap:3px;flex:1;min-width:0">
                 <h3>Datos personales en tu día a día</h3>
                 <p>6 min · test superado</p>
@@ -714,10 +722,10 @@
           <p class="plan__unit">pago único · sin permanencia</p>
           <p class="plan__note">Ideal para probar el servicio</p>
           <ul class="plan__features">
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>3 píldoras formativas con test</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>1 campaña de phishing</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Informe de resultados</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Acceso al panel de control</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>3 píldoras formativas con test</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>1 campaña de phishing</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Informe de resultados</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Acceso al panel de control</li>
           </ul>
           <a class="btn btn--ghost btn--block" href="#contacto">Empezar ahora</a>
         </article>
@@ -729,12 +737,12 @@
           <p class="plan__unit">/ empleado / año</p>
           <p class="plan__equiv"><b class="num">2,50 €</b> al mes por empleado</p>
           <ul class="plan__features">
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Acceso al catálogo completo de píldoras</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Campañas de phishing periódicas</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Charlas formativas en directo</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Informes de cumplimiento (ENS, NIS2, ISO)</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Panel multiusuario para tus admins</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Soporte prioritario</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Acceso al catálogo completo de píldoras</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Campañas de phishing periódicas</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Charlas formativas en directo</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Informes de cumplimiento (ENS, NIS2, ISO)</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Panel multiusuario para tus admins</li>
+            <li><svg width="15" height="15" style="color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Soporte prioritario</li>
           </ul>
           <div style="display:flex;flex-direction:column;gap:10px">
             <a class="btn btn--amber btn--block" href="#contacto">Solicitar demo</a>
@@ -747,12 +755,12 @@
           <p class="plan__price"><b>Presupuesto</b></p>
           <p class="plan__unit">sin compromiso</p>
           <ul class="plan__features">
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Solo phishing, solo formación o todo</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Píldoras y simulaciones personalizadas</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Clones a medida de vuestros logins</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Contenido formativo bajo demanda</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Gestión delegada: lo llevamos nosotros</li>
-            <li><svg width="15" height="15" style="stroke-width:2.2" aria-hidden="true"><use href="#i-check"/></svg>Soporte dedicado</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Solo phishing, solo formación o todo</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Píldoras y simulaciones personalizadas</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Clones a medida de vuestros logins</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Contenido formativo bajo demanda</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Gestión delegada: lo llevamos nosotros</li>
+            <li><svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>Soporte dedicado</li>
           </ul>
           <a class="btn btn--ghost btn--block" href="#contacto">Pedir presupuesto</a>
         </article>
@@ -865,10 +873,10 @@
         <h2>Prueba LegiLearn en tu empresa.</h2>
         <p class="lead-copy">Te preparamos una demo guiada y lanzamos una campaña de phishing a tu equipo, sin coste ni compromiso. Descubre en una semana dónde están tus puntos ciegos.</p>
         <ul style="display:flex;flex-direction:column;gap:13px;padding-top:4px">
-          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Demo personalizada de 20 min</li>
-          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Campaña de phishing con resultados reales</li>
-          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Informe de vulnerabilidad detallado</li>
-          <li class="tick"><span class="tick__dot"><svg width="11" height="11" style="stroke-width:3" aria-hidden="true"><use href="#i-check"/></svg></span>Sin tarjeta. Sin permanencia.</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" aria-hidden="true"><use href="#i-check"/></svg></span>Demo personalizada de 20 min</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" aria-hidden="true"><use href="#i-check"/></svg></span>Campaña de phishing con resultados reales</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" aria-hidden="true"><use href="#i-check"/></svg></span>Informe de vulnerabilidad detallado</li>
+          <li class="tick"><span class="tick__dot"><svg width="11" height="11" aria-hidden="true"><use href="#i-check"/></svg></span>Sin tarjeta. Sin permanencia.</li>
         </ul>
         <div class="owner">
           <span class="owner__avatar" aria-hidden="true">EP</span>
@@ -941,7 +949,7 @@
 
         <div class="form__done">
           <span class="icon-tile" style="width:56px;height:56px;border-radius:999px;background:var(--green-soft);color:var(--green-deep)">
-            <svg width="26" height="26" style="stroke-width:2.6" aria-hidden="true"><use href="#i-check"/></svg>
+            <svg width="26" height="26" aria-hidden="true"><use href="#i-check"/></svg>
           </span>
           <h2 style="font-size:22px">¡Gracias!</h2>
           <p style="font-size:14px;line-height:1.6;color:var(--fg-body);max-width:360px">Hemos recibido tu petición. Te escribimos en las próximas 24 h laborables para coordinar tu demo y tu campaña gratuita.</p>

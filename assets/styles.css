@@ -517,19 +517,42 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 .meter > i.is-good { background: var(--green); }
 
 /* 5.3 Carrusel de clientes ---------------------------------------------- */
+/* La prueba social iba suelta entre el hero negro y la primera sección
+   blanca, y se leía como un trozo de ninguna de las dos. Ahora va dentro de
+   un panel propio sobre la banda de arena: se ve que es un bloque aparte. */
 .clients {
-  background: linear-gradient(180deg, var(--sand) 0, var(--sand) 62%, var(--surface) 100%);
-  padding: 34px 0 48px;
+  background: linear-gradient(180deg, var(--sand) 0, var(--sand) 72%, var(--surface) 100%);
+  padding: 54px 0 60px;
+  overflow: hidden;
+}
+.clients__panel {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  padding: 28px 0 32px;
+  box-shadow: 0 20px 44px -32px rgba(10, 10, 11, 0.4);
   overflow: hidden;
 }
 .clients__title {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: clamp(17px, 2.1vw, 21px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 28px 26px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--fg-muted);
+  white-space: nowrap;
 }
-.clients__title em { font-style: normal; color: var(--amber-deep); }
+/* Un filete a cada lado del rótulo: encuadra sin añadir otra caja. */
+.clients__title::before,
+.clients__title::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--line);
+}
+.clients__title em { font-style: normal; font-weight: 600; color: var(--fg); }
 
 /* Los bordes se desvanecen con una máscara sobre el propio carrusel. */
 .logos {
@@ -1386,7 +1409,8 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .cert { padding: 26px; }
   .cert__foot { flex-wrap: wrap; gap: 18px; }
   .footer__legal .wrap { flex-direction: column; align-items: flex-start; }
-  .clients__title { padding-inline: 20px; }
+  .clients__panel { border-radius: 18px; padding: 22px 0 26px; }
+  .clients__title { margin-inline: 20px; font-size: 12px; white-space: normal; }
   .logos__track img { height: 40px; width: 122px; }
   .logos__track li { margin-inline: 14px; }
 }

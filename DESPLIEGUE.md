@@ -98,3 +98,26 @@ Dos avisos:
   iframe que no se carga hasta que alguien pulsa el vídeo. Tipografías,
   imágenes del blog y miniatura del vídeo se sirven desde el propio dominio,
   para no ceder la IP de cada visitante antes de que acepte nada.
+
+## Parte 7 — Los iconos también se generan
+
+El sprite de iconos sale de Lucide (licencia ISC) y se monta con:
+
+```
+node build-iconos.mjs
+```
+
+Eso reescribe `assets/sprite.html`. Después hay que pegarlo en las páginas
+(está incrustado en línea en cada una, porque los sprites externos con
+`<use href="fichero.svg#id">` no funcionan en Safari).
+
+No edites un icono suelto a mano. El juego anterior tenía diez grosores de
+línea distintos y eso es exactamente lo que hacía que se viera amateur:
+el valor de un set de iconos está en que todos comparten rejilla y grosor.
+Si necesitas uno nuevo, añádelo al mapa de `build-iconos.mjs` con su nombre
+en https://lucide.dev y vuelve a generarlo.
+
+Dos iconos van aparte a propósito y están escritos en el propio generador:
+`i-quote`, que es un signo tipográfico macizo y no un icono de línea, e
+`i-play`, que va relleno porque un triángulo hueco se ve endeble a tamaño
+pequeño.
