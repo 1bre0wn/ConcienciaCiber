@@ -15,3 +15,7 @@ Thumbs.db
 
 # lienzo de diseño (no forma parte de la web publicada)
 design2/
+
+# ficheros de trabajo de la sesión (servidor local y mensajes de commit)
+.serve.mjs
+.msg.txt
