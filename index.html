@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ===== SEO básico =====
-     OJO: cambia CANONICAL_URL por el dominio real antes de publicar.
-     Aparece en <link rel="canonical">, en las etiquetas og:/twitter: y en el JSON-LD. -->
+<!-- ===== SEO básico ===== -->
 <title>LegiLearn · Formación y simulaciones de phishing para empresas</title>
 <meta name="description" content="Programa de concienciación en ciberseguridad: simulaciones de phishing a medida, píldoras formativas con test, certificados verificables e informes listos para ENS, NIS2, ISO 27001 y RGPD. Primera campaña gratis.">
 <link rel="canonical" href="https://web.legilearn.com/">
@@ -32,10 +30,12 @@
 <link rel="icon" type="image/png" href="assets/legilearn-icono.png">
 <link rel="apple-touch-icon" href="assets/legilearn-isotipo.png">
 
-<!-- ===== Tipografías ===== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<!-- ===== Tipografías =====
+     Servidas desde nuestro propio dominio: así ninguna visita manda su IP a
+     Google antes de haber aceptado nada. -->
+<link rel="preload" href="assets/fonts/inter-tight-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
 
 <link rel="stylesheet" href="assets/styles.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -50,6 +50,13 @@
       "@id": "https://web.legilearn.com/#organizacion",
       "name": "LegiLearn",
       "url": "https://web.legilearn.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://web.legilearn.com/assets/legilearn-logo.png",
+        "width": 320,
+        "height": 96
+      },
+      "sameAs": ["https://legitec.com/"],
       "description": "Programa de concienciación en ciberseguridad para empresas: simulaciones de phishing, formación en píldoras, certificación y evidencias de cumplimiento.",
       "parentOrganization": { "@type": "Organization", "name": "Legitec Ciberseguridad S.L." },
       "email": "eperez@legitec.com",
@@ -88,9 +95,16 @@
         {
           "@type": "Offer",
           "name": "Programa Anual",
-          "price": "15",
+          "price": "30",
           "priceCurrency": "EUR",
-          "description": "Por empleado y año: catálogo completo de píldoras, campañas periódicas, charlas en directo e informes de cumplimiento."
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "30",
+            "priceCurrency": "EUR",
+            "unitCode": "ANN",
+            "referenceQuantity": { "@type": "QuantitativeValue", "value": "1", "unitText": "empleado" }
+          },
+          "description": "30 € por empleado y año (2,50 € al mes): catálogo completo de píldoras, campañas periódicas, charlas en directo e informes de cumplimiento."
         }
       ]
     }
@@ -137,7 +151,7 @@
 <header class="nav" data-nav>
   <div class="wrap nav__inner">
     <a class="brand" href="#inicio" aria-label="LegiLearn, inicio">
-      <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="640" height="192">
+      <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="320" height="96">
     </a>
 
     <nav class="nav__links" id="menu" aria-label="Principal">
@@ -229,7 +243,7 @@
             <span class="meter meter--dark" style="flex:1"><i style="width:68%"></i></span>
             <span class="mono num" style="font-size:10px;color:rgba(245,245,245,.7)">68%</span>
           </p>
-          <p class="mono num" style="font-size:10px;color:rgba(245,245,245,.42)">843 / 1.240 envíos</p>
+          <p class="mono num" style="font-size:10px;color:rgba(245,245,245,.58)">843 / 1.240 envíos</p>
         </div>
       </div>
     </div>
@@ -440,7 +454,7 @@
       <div class="learn reveal">
         <article class="card" style="overflow:hidden;display:flex;flex-direction:column">
           <button class="player" type="button" data-video="uFhcQtnFpPg"
-                  style="background-image: linear-gradient(rgba(10,10,11,.34), rgba(10,10,11,.5)), url(https://i.ytimg.com/vi/uFhcQtnFpPg/maxresdefault.jpg)">
+                  style="background-image: linear-gradient(rgba(10,10,11,.45), rgba(10,10,11,.62)), url(assets/pildora-01-poster.jpg)">
             <span class="player__tag">PÍLDORA 01 · 4 MIN</span>
             <span class="player__play"><svg width="25" height="25" style="color:var(--ink)" aria-hidden="true"><use href="#i-play"/></svg></span>
             <span class="player__meta">
@@ -541,26 +555,26 @@
         <div class="split reveal">
           <article class="cert">
             <div class="cert__head">
-              <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="640" height="192" style="height:22px;width:auto">
-              <span class="mono" style="font-size:10px;letter-spacing:.16em;color:rgba(245,245,245,.42)">CERT · CYB-101</span>
+              <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="320" height="96" style="height:22px;width:auto">
+              <span class="mono" style="font-size:10px;letter-spacing:.16em;color:rgba(245,245,245,.58)">CERT · CYB-101</span>
             </div>
             <div style="display:flex;flex-direction:column;gap:8px">
-              <p class="mono" style="font-size:10px;letter-spacing:.22em;color:rgba(245,245,245,.5)">CERTIFICADO DE APROVECHAMIENTO</p>
+              <p class="mono" style="font-size:10px;letter-spacing:.22em;color:rgba(245,245,245,.58)">CERTIFICADO DE APROVECHAMIENTO</p>
               <p class="cert__name">Nerea García Ruiz</p>
               <p style="font-size:14px;color:rgba(245,245,245,.55)">ha completado con éxito la formación</p>
             </div>
             <p class="cert__course">Concienciación en Ciberseguridad</p>
             <div class="cert__foot">
               <span style="display:flex;flex-direction:column;gap:5px">
-                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">EMITIDO</span>
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.58)">EMITIDO</span>
                 <span class="num" style="font-size:14px;font-weight:500">18 abril 2026</span>
               </span>
               <span style="display:flex;flex-direction:column;gap:5px">
-                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">PUNTUACIÓN</span>
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.58)">PUNTUACIÓN</span>
                 <span class="num" style="font-size:14px;font-weight:600;color:var(--amber)">94 / 100</span>
               </span>
               <span style="display:flex;flex-direction:column;gap:5px;align-items:flex-end">
-                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.42)">VERIFICACIÓN</span>
+                <span class="mono" style="font-size:10px;letter-spacing:.14em;color:rgba(245,245,245,.58)">VERIFICACIÓN</span>
                 <svg width="62" height="62" viewBox="0 0 64 64" style="background:#fff;border-radius:7px;padding:4px" role="img" aria-label="Código QR de verificación del certificado">
                   <rect x="4" y="4" width="16" height="16" fill="none" stroke="#0A0A0B" stroke-width="4"/>
                   <rect x="44" y="4" width="16" height="16" fill="none" stroke="#0A0A0B" stroke-width="4"/>
@@ -711,8 +725,9 @@
         <article class="plan plan--featured">
           <p class="plan__flag">Más completo</p>
           <h3 class="plan__name">Programa Anual</h3>
-          <p class="plan__price num"><span>Desde</span><b>15 €</b></p>
+          <p class="plan__price num"><span>Desde</span><b>30 €</b></p>
           <p class="plan__unit">/ empleado / año</p>
+          <p class="plan__equiv"><b class="num">2,50 €</b> al mes por empleado</p>
           <ul class="plan__features">
             <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Acceso al catálogo completo de píldoras</li>
             <li><svg width="15" height="15" style="stroke-width:2.2;color:var(--amber)" aria-hidden="true"><use href="#i-check"/></svg>Campañas de phishing periódicas</li>
@@ -904,6 +919,11 @@
             </label>
           </div>
 
+          <div class="hp" aria-hidden="true">
+            <label for="empresa-web">No rellenes este campo</label>
+            <input type="text" id="empresa-web" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <label class="consent">
             <input type="checkbox" name="consent" required>
             <span>Acepto la <a href="#" rel="nofollow">política de privacidad</a> y recibir información sobre LegiLearn.</span>
@@ -937,9 +957,9 @@
     <div class="wrap footer__top">
       <div>
         <a class="brand brand--footer" href="#inicio" aria-label="LegiLearn, inicio">
-          <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="640" height="192">
+          <img src="assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="320" height="96">
         </a>
-        <p style="font-size:14px;color:rgba(245,245,245,.5);margin-top:16px">Un servicio de Legitec Ciberseguridad S.L.</p>
+        <p style="font-size:14px;color:rgba(245,245,245,.58);margin-top:16px">Un servicio de Legitec Ciberseguridad S.L.</p>
         <nav class="footer__links" aria-label="Secciones">
           <a class="nav__link" href="#simulaciones">Simulaciones</a>
           <a class="nav__link" href="#formacion">Formación</a>
@@ -952,7 +972,7 @@
         </nav>
       </div>
       <address class="footer__contact" style="font-style:normal">
-        <span class="mono" style="font-size:10px;letter-spacing:.2em;color:rgba(245,245,245,.4);margin-bottom:4px">LEGITEC CIBERSEGURIDAD S.L.</span>
+        <span class="mono" style="font-size:10px;letter-spacing:.2em;color:rgba(245,245,245,.58);margin-bottom:4px">LEGITEC CIBERSEGURIDAD S.L.</span>
         <span>Avenida de los Rectores, 2-4 bajo · 30100 Murcia</span>
         <a class="nav__link num" href="tel:+34722462552">+34 722 462 552</a>
         <a class="nav__link" href="mailto:eperez@legitec.com">eperez@legitec.com</a>

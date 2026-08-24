@@ -56,3 +56,45 @@ correo a `eperez@legitec.com`.
   los registros DNS que te indiquen. Luego define la variable `CONTACT_FROM`
   con algo como `LegiLearn <web@legilearn.com>`. Así los correos
   saldrán desde tu dominio y podrás enviar a cualquier destinatario.
+
+---
+
+## Parte 4 — El blog se genera, no se edita a mano
+
+Los artículos viven en `posts-data.js`. Cada vez que toques ese fichero hay
+que regenerar las páginas:
+
+```
+node build-blog.mjs
+```
+
+Eso reescribe `blog/<slug>.html` (una página real por artículo, con su
+título, su descripción, su imagen para redes y sus datos estructurados) y
+vuelve a montar `sitemap.xml`. No edites los ficheros de `blog/` a mano: el
+generador los sobrescribe.
+
+`post.html` sólo queda para que los enlaces antiguos del tipo
+`post.html?p=slug` sigan llevando al artículo correcto. No se indexa.
+
+## Parte 5 — Dominios
+
+- **web.legilearn.com** → esta web. Es el dominio que aparece en los
+  canonical, en el sitemap y en los datos estructurados.
+- **legilearn.com** → la plataforma. Es adonde apunta el botón *Acceder*.
+
+Si algún día cambia, hay que tocar `SITE` en `build-blog.mjs` y buscar
+`web.legilearn.com` en los HTML, en `robots.txt` y en `sitemap.xml`.
+
+## Parte 6 — Cabeceras de seguridad
+
+`vercel.json` define la Content-Security-Policy y el resto de cabeceras.
+Dos avisos:
+
+- La CSP autoriza los scripts en línea **por su hash**. Si cambias el
+  `<script>` que hay dentro de cualquier `<head>`, o el de `post.html`, el
+  hash deja de coincidir y el navegador bloqueará el script. Hay que
+  recalcularlo (`sha256` del contenido, en base64) y actualizarlo.
+- El único tercero permitido es `youtube-nocookie.com`, y sólo dentro de un
+  iframe que no se carga hasta que alguien pulsa el vídeo. Tipografías,
+  imágenes del blog y miniatura del vídeo se sirven desde el propio dominio,
+  para no ceder la IP de cada visitante antes de que acepte nada.

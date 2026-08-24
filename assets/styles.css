@@ -38,6 +38,7 @@
 
   --green: #16a34a;
   --green-deep: #15803d;
+  --green-darkest: #14532d;
   --green-soft: rgba(22, 163, 74, 0.1);
 
   /* tipografía */
@@ -462,7 +463,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.16);
 }
-.shot__url { font-family: var(--mono); font-size: 11px; color: rgba(245, 245, 245, 0.42); }
+.shot__url { font-family: var(--mono); font-size: 11px; color: rgba(245, 245, 245, 0.58); }
 
 .float {
   position: absolute;
@@ -725,7 +726,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   flex: 0 0 auto;
   width: 36px; height: 36px;
   border-radius: 7px;
-  background: var(--green);
+  background: var(--green-deep);
   color: #fff;
   display: inline-flex;
   align-items: center;
@@ -772,7 +773,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   border: 0;
   cursor: pointer;
   background:
-    linear-gradient(rgba(10, 10, 11, 0.34), rgba(10, 10, 11, 0.5)),
+    linear-gradient(rgba(10, 10, 11, 0.45), rgba(10, 10, 11, 0.62)),
     radial-gradient(620px 280px at 50% 40%, #212226, var(--ink) 76%);
   background-size: cover;
   background-position: center;
@@ -844,7 +845,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
-.badge--done { background: var(--green-soft); color: var(--green-deep); }
+.badge--done { background: var(--green-soft); color: var(--green-darkest); }
 .badge--now { background: var(--amber-soft); color: var(--amber-deep); }
 
 .trio { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -967,7 +968,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 }
 .plan--featured .plan__name { color: rgba(245, 245, 245, 0.72); }
 .plan--featured .plan__price span,
-.plan--featured .plan__unit { color: rgba(245, 245, 245, 0.5); }
+.plan--featured .plan__unit { color: rgba(245, 245, 245, 0.58); }
 .plan--featured .plan__features li { color: rgba(245, 245, 245, 0.88); }
 .plan__flag {
   position: absolute;
@@ -982,7 +983,20 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   padding: 5px 12px;
   border-radius: var(--radius-pill);
 }
-.plan__small { text-align: center; font-size: 12px; color: rgba(245, 245, 245, 0.45); }
+/* La equivalencia mensual es lo que hace entendible el precio: 30 € al año
+   suena a compra, 2,50 € al mes suena a lo que cuesta de verdad. */
+.plan__equiv {
+  align-self: flex-start;
+  margin-top: -14px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.14);
+  color: var(--amber);
+  font-size: 13px;
+}
+.plan__equiv b { font-weight: 600; }
+
+.plan__small { text-align: center; font-size: 12px; color: rgba(245, 245, 245, 0.58); }
 
 .custom {
   margin-top: 24px;
@@ -1143,6 +1157,16 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   background-position: right 14px center;
   padding-right: 40px;
 }
+/* Trampa para robots de spam. Fuera de la pantalla en lugar de display:none,
+   que es lo primero que miran los que están bien hechos. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .consent {
   display: flex;
   align-items: flex-start;
@@ -1152,7 +1176,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   color: var(--fg-muted);
 }
 .consent { padding-block: 4px; }
-.consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px; accent-color: var(--ink); }
+.consent input { flex: 0 0 auto; width: 24px; height: 24px; margin-top: 0; accent-color: var(--ink); }
 .consent a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
 .form__foot { display: flex; flex-direction: column; gap: 12px; }
 .form__alt { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--fg-muted); }
@@ -1190,7 +1214,7 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   gap: 20px;
   padding-block: 20px;
   font-size: 12px;
-  color: rgba(245, 245, 245, 0.38);
+  color: rgba(245, 245, 245, 0.58);
 }
 .footer__legal ul { display: flex; flex-wrap: wrap; gap: 20px; }
 

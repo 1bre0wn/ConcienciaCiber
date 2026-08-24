@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adiós a las contraseñas: guía práctica de passkeys para empresas | LegiLearn</title>
+<meta name="description" content="Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.">
+<link rel="canonical" href="https://web.legilearn.com/blog/contrasenas-passkeys-2026.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0a0a0b">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LegiLearn">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://web.legilearn.com/blog/contrasenas-passkeys-2026.html">
+<meta property="og:title" content="Adiós a las contraseñas: guía práctica de passkeys para empresas">
+<meta property="og:description" content="Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.">
+<meta property="og:image" content="https://web.legilearn.com/uploads/blog/1614064641938.jpg">
+<meta property="og:image:alt" content="Adiós a las contraseñas: guía práctica de passkeys para empresas">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adiós a las contraseñas: guía práctica de passkeys para empresas">
+<meta name="twitter:description" content="Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.">
+<meta name="twitter:image" content="https://web.legilearn.com/uploads/blog/1614064641938.jpg">
+<link rel="icon" type="image/png" href="../assets/legilearn-icono.png">
+<link rel="apple-touch-icon" href="../assets/legilearn-isotipo.png">
+<link rel="preload" href="../assets/fonts/inter-tight-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-tight-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Adiós a las contraseñas: guía práctica de passkeys para empresas",
+  "description": "Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.",
+  "image": "https://web.legilearn.com/uploads/blog/1614064641938.jpg",
+  "url": "https://web.legilearn.com/blog/contrasenas-passkeys-2026.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://web.legilearn.com/blog/contrasenas-passkeys-2026.html"
+  },
+  "inLanguage": "es-ES",
+  "author": {
+    "@type": "Organization",
+    "name": "Guías prácticas · LegiLearn"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LegiLearn",
+    "url": "https://web.legilearn.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://web.legilearn.com/assets/legilearn-logo.png"
+    }
+  },
+  "datePublished": "2026-05-12",
+  "dateModified": "2026-05-12",
+  "articleSection": "Guías",
+  "timeRequired": "PT8M"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<svg class="sr-only" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-play-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M3 13h5l1.5 2.5h5L16 13h5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.4 11.1 12.3 20a5.5 5.5 0 0 1-7.8-7.8l9-8.9a3.7 3.7 0 0 1 5.2 5.2l-9 9a1.8 1.8 0 0 1-2.6-2.6l8.3-8.2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="19" x="6" y="2.5" rx="2.5"/><path d="M11 19h2"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="6" height="6" x="3" y="3" rx="1"/><rect width="6" height="6" x="15" y="3" rx="1"/><rect width="6" height="6" x="3" y="15" rx="1"/><path d="M15 15h2v2h-2z"/><path d="M19 19h2v2h-2z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="5" rx="2"/><path d="M3 9h18"/><path d="M9 14h6"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4Z"/><path d="M6 10.6V16c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5.4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 15 4-4 4 4 5-6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/><path d="m9 15 2 2 4-4"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+  <symbol id="i-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19.4 9a2 2 0 0 0-2-2h-1.6V5.4a2.4 2.4 0 1 0-4.8 0V7H9.4a2 2 0 0 0-2 2v1.6H5.8a2.4 2.4 0 1 0 0 4.8h1.6V17a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2Z"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="5" x="2" y="7" rx="1"/><path d="M12 22V7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M7.5 7a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17 13.5 8.5l-5 5L2 7"/><path d="M16 17h6v-6"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 32 32" fill="currentColor"><path d="M10 18V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6zm10 0V10a4 4 0 0 1 4-4h2v2h-2a2 2 0 0 0-2 2v2h4v8h-6z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+</svg>
+<header class="nav" data-nav>
+  <div class="wrap nav__inner">
+    <a class="brand" href="../index.html" aria-label="LegiLearn, inicio">
+      <img src="../assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="320" height="96">
+    </a>
+
+    <nav class="nav__links" id="menu" aria-label="Principal">
+      <a class="nav__link" href="../index.html#simulaciones">Simulaciones</a>
+      <a class="nav__link" href="../index.html#formacion">Formación</a>
+      <a class="nav__link" href="../index.html#certificados">Certificación</a>
+      <a class="nav__link" href="../index.html#cumplimiento">Cumplimiento</a>
+      <a class="nav__link" href="../index.html#precios">Precios</a>
+      <a class="nav__link" href="../index.html#clientes">Clientes</a>
+      <a class="nav__link" href="../blog.html" aria-current="page">Blog</a>
+      <a class="nav__link" href="../nosotros.html">Nosotros</a>
+      <a class="nav__link nav__cta-m" href="../index.html#contacto">Primera campaña gratis</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__login" href="https://legilearn.com" aria-label="Acceder a la plataforma">
+        <svg width="17" height="17" aria-hidden="true"><use href="#i-login"/></svg>
+        <span>Acceder</span>
+      </a>
+      <a class="btn btn--amber" href="../index.html#contacto">Primera campaña gratis</a>
+      <button class="nav__toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="menu">
+        <span class="sr-only">Abrir menú</span>
+        <svg width="24" height="24" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <section class="page-hero">
+    <div class="wrap" style="max-width:900px">
+      <p class="post-meta" style="color:rgba(245,245,245,.7);margin-bottom:20px">
+        <a href="../blog.html" style="color:var(--amber)">Blog</a>
+        <span>·</span><span>Guías</span>
+        <span>·</span><time datetime="2026-05-12">12 may 2026</time>
+        <span>·</span><span>8 min de lectura</span>
+      </p>
+      <h1>Adiós a las contraseñas: guía práctica de passkeys para empresas</h1>
+      <p class="page-hero__lead">Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.</p>
+      <p class="page-hero__lead" style="margin-top:20px;font-size:14px">Guías prácticas · LegiLearn</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <article class="article">
+        <figure class="article__cover">
+          <img src="/uploads/blog/1614064641938.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async">
+        </figure>
+        <div class="prose"><p>Una passkey es una credencial criptográfica que vive en tu dispositivo — móvil, portátil, llave física — y se desbloquea con tu huella o tu cara. <strong>No hay nada que escribir, nada que recordar y, crucialmente, nada que robar mediante phishing</strong>: la clave privada nunca sale del dispositivo y solo funciona en el dominio legítimo.</p>
+
+      <h2>Por qué son inmunes al phishing</h2>
+      <p>Cuando un empleado introduce su contraseña en una web clonada, el atacante la captura y la reutiliza. Con passkeys este ataque es <strong>matemáticamente imposible</strong>: la passkey de <em>tuempresa.com</em> no responde ante <em>tuempresa-login.co</em>. El navegador ni siquiera la ofrece. No es que el empleado "deba fijarse mejor" — es que no hay nada que pueda entregar por error.</p>
+      <p>Esto convierte a las passkeys en la única medida que elimina de raíz la categoría completa de ataques de robo de credenciales, en lugar de mitigarla.</p>
+
+      <figure>
+        <img src="/uploads/blog/1510511459019.jpg" alt="Pantalla de portátil con código en un entorno oscuro" loading="lazy">
+        <figcaption>Miles de millones de contraseñas filtradas circulan en listas combinadas que alimentan ataques automatizados de credential stuffing. Las passkeys no aparecen en ninguna lista: no hay nada que filtrar.</figcaption>
+      </figure>
+
+      <h2>Contraseña vs. passkey, sin tecnicismos</h2>
+      <div class="table-scroll"><table>
+        <thead><tr><th>Riesgo</th><th>Contraseña</th><th>Passkey</th></tr></thead>
+        <tbody>
+          <tr><td>Phishing</td><td>Vulnerable, incluso con MFA por SMS</td><td>Inmune por diseño</td></tr>
+          <tr><td>Filtración del servidor</td><td>Hash crackeable y reutilizable</td><td>Solo se filtra la clave pública: inservible</td></tr>
+          <tr><td>Reutilización entre servicios</td><td>El hábito más extendido y peligroso</td><td>Imposible: una por servicio, automática</td></tr>
+          <tr><td>Fricción para el usuario</td><td>Recordar, rotar, gestionar</td><td>Huella o cara: dos segundos</td></tr>
+        </tbody>
+      </table></div>
+
+      <blockquote>
+        <p>Las cuentas protegidas con passkeys resisten más del 99% de los ataques de apropiación automatizados; el inicio de sesión es además ocho veces más rápido que con contraseña y MFA tradicional.</p>
+        <cite>— Datos publicados por la FIDO Alliance y los principales proveedores de identidad</cite>
+      </blockquote>
+
+      <h2>Plan de despliegue en 4 fases</h2>
+      <ol>
+        <li><strong>Inventario (semana 1–2):</strong> identifica qué aplicaciones soportan ya FIDO2/WebAuthn. Microsoft 365, Google Workspace y la mayoría de SaaS modernos lo hacen; tu ERP de 2009 probablemente no, y no pasa nada: prioriza el correo y la identidad central, que es donde ocurre el phishing.</li>
+        <li><strong>Piloto con IT y dirección (semana 3–4):</strong> dos semanas, grupo reducido, recogida de fricciones reales — dispositivos compartidos, perfiles sin móvil corporativo, recuperación de cuenta.</li>
+        <li><strong>Despliegue general (mes 2):</strong> activación por departamentos con la contraseña como respaldo temporal. La comunicación importa más que la técnica: explica el "por qué" antes del "cómo".</li>
+        <li><strong>Eliminación del respaldo (mes 3+):</strong> política de passkey obligatoria donde sea posible y contraseña deshabilitada. Hasta este paso, el phishing sigue funcionando: el atacante simplemente pide "el método antiguo".</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-label">Recomendación LegiLearn</div>
+        <p>El mayor obstáculo no es técnico, es de comunicación: la gente desconfía de lo que no entiende ("¿y si me cortan el dedo?", nos preguntan en serio en las formaciones). Acompaña el despliegue con una píldora formativa que explique qué es una passkey y por qué es más cómoda — cuando el empleado entiende que gana en comodidad y en seguridad a la vez, la adopción se dispara.</p>
+      </div>
+
+      <hr>
+      <p>Nuestro módulo de formación sobre passkeys está incluido en todos los itinerarios de la plataforma, junto con la guía de despliegue para administradores. Quince minutos de formación que eliminan la principal puerta de entrada de los atacantes.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="head__title">
+          <p class="eyebrow">Seguir leyendo</p>
+          <h2>Otros artículos del blog.</h2>
+        </div>
+        <p class="head__lead"><a class="btn btn--ghost" href="../blog.html">Ver todos <svg width="15" height="15" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+      </div>
+      <ul class="posts">
+      <li><article class="card card--hover post-card">
+        <a class="post-card__cover" href="nis2-2026-pymes.html">
+          <img src="/uploads/blog/1450101499163.jpg" alt="" width="1400" height="900" loading="lazy" decoding="async">
+        </a>
+        <div class="post-card__body">
+          <p class="post-meta"><span class="post-cat">Normativa</span><span>02 jun 2026</span><span>9 min</span></p>
+          <h3><a href="nis2-2026-pymes.html">NIS2 ya es obligatoria: qué tiene que hacer tu pyme antes de octubre</a></h3>
+          <p>La directiva europea de ciberseguridad afecta a más de 100.000 empresas españolas. Te explicamos sin jerga quién está obligado, qué exige exactamente y por dónde empezar sin volverte loco.</p>
+        </div>
+      </article></li>
+      <li><article class="card card--hover post-card">
+        <a class="post-card__cover" href="phishing-ia-deepfake-voz.html">
+          <img src="/uploads/blog/1523966211575.jpg" alt="" width="1400" height="900" loading="lazy" decoding="async">
+        </a>
+        <div class="post-card__body">
+          <p class="post-meta"><span class="post-cat">Amenazas</span><span>28 may 2026</span><span>7 min</span></p>
+          <h3><a href="phishing-ia-deepfake-voz.html">Tu &quot;CEO&quot; te llama por teléfono: el fraude por voz clonada se dispara un 300%</a></h3>
+          <p>Los atacantes ya no necesitan escribir correos: con 30 segundos de audio público clonan la voz de un directivo y autorizan transferencias por teléfono. Así funciona el ataque y así se frena.</p>
+        </div>
+      </article></li>
+      <li><article class="card card--hover post-card">
+        <a class="post-card__cover" href="qr-phishing-quishing.html">
+          <img src="/uploads/blog/1512941937669.jpg" alt="" width="1400" height="900" loading="lazy" decoding="async">
+        </a>
+        <div class="post-card__body">
+          <p class="post-meta"><span class="post-cat">Amenazas</span><span>19 may 2026</span><span>6 min</span></p>
+          <h3><a href="qr-phishing-quishing.html">Quishing: el código QR del parking puede vaciarte la cuenta</a></h3>
+          <p>Pegatinas falsas sobre códigos legítimos en parquímetros, cartas físicas con QR &quot;del banco&quot; y menús de restaurante manipulados. El phishing por QR crece porque salta los filtros del correo.</p>
+        </div>
+      </article></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section--sand">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:620px">
+        <h2 style="font-size:clamp(26px,3vw,34px)">Pon a prueba a tu equipo esta semana.</h2>
+        <p style="font-size:16px;line-height:1.65;color:var(--fg-body)">Una campaña de phishing real, gratis y sin compromiso, con su informe de resultados.</p>
+      </div>
+      <a class="btn btn--amber btn--lg" href="../index.html#contacto">Primera campaña gratis <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__slab">
+    <div class="wrap footer__top">
+      <div>
+        <a class="brand brand--footer" href="../index.html" aria-label="LegiLearn, inicio">
+          <img src="../assets/legilearn-logo-oscuro.png" alt="LegiLearn" width="320" height="96">
+        </a>
+        <p style="font-size:14px;color:rgba(245,245,245,.58);margin-top:16px">Un servicio de Legitec Ciberseguridad S.L.</p>
+        <nav class="footer__links" aria-label="Secciones">
+          <a class="nav__link" href="../index.html#simulaciones">Simulaciones</a>
+          <a class="nav__link" href="../index.html#formacion">Formación</a>
+          <a class="nav__link" href="../index.html#certificados">Certificación</a>
+          <a class="nav__link" href="../index.html#cumplimiento">Cumplimiento</a>
+          <a class="nav__link" href="../index.html#precios">Precios</a>
+          <a class="nav__link" href="../blog.html">Blog</a>
+          <a class="nav__link" href="../nosotros.html">Nosotros</a>
+          <a class="nav__link footer__login" href="https://legilearn.com">Acceder a la plataforma</a>
+        </nav>
+      </div>
+      <address class="footer__contact" style="font-style:normal">
+        <span class="mono" style="font-size:10px;letter-spacing:.2em;color:rgba(245,245,245,.58);margin-bottom:4px">LEGITEC CIBERSEGURIDAD S.L.</span>
+        <span>Avenida de los Rectores, 2-4 bajo · 30100 Murcia</span>
+        <a class="nav__link num" href="tel:+34722462552">+34 722 462 552</a>
+        <a class="nav__link" href="mailto:eperez@legitec.com">eperez@legitec.com</a>
+      </address>
+    </div>
+    <div class="footer__legal">
+      <div class="wrap">
+        <span>© 2026 Legitec Ciberseguridad S.L. · Todos los derechos reservados</span>
+        <ul>
+          <li><a class="nav__link" href="#">Política de privacidad</a></li>
+          <li><a class="nav__link" href="#">Aviso legal</a></li>
+          <li><a class="nav__link" href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/app.js" defer></script>
+</body>
+</html>

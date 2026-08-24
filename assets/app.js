@@ -107,6 +107,7 @@
     const status = form.querySelector('[data-status]');
     const button = form.querySelector('[data-submit]');
     const label = button.innerHTML;
+    const abierto = Date.now();
 
     const say = (text, state) => {
       status.textContent = text;
@@ -126,7 +127,15 @@
       }
 
       const data = Object.fromEntries(new FormData(form));
-      delete data.consent;
+
+      // El consentimiento se envía y queda registrado en el correo: el RGPD
+      // exige poder demostrar que se obtuvo, y con qué texto exactamente.
+      const casilla = form.querySelector('[name="consent"]');
+      data.consent = casilla.checked;
+      data.consentText = form.querySelector('.consent span').textContent.trim();
+
+      // Cuánto ha tardado en rellenarlo. Los robots envían al instante.
+      data.elapsed = Date.now() - abierto;
 
       button.disabled = true;
       button.textContent = 'Enviando…';
@@ -139,14 +148,24 @@
           body: JSON.stringify(data),
         });
 
-        if (!response.ok) throw new Error('request_failed');
+        if (!response.ok) {
+          // El servidor explica qué ha pasado (formato, consentimiento,
+          // demasiados intentos). Es más útil que un "algo ha fallado".
+          const detalle = await response.json().catch(() => null);
+          throw new Error(detalle && detalle.error ? detalle.error : '');
+        }
 
         form.dataset.sent = 'true';
         form.querySelector('.form__done').focus?.();
       } catch (error) {
         button.disabled = false;
         button.innerHTML = label;
-        say('No se pudo enviar. Vuelve a intentarlo o escríbenos a eperez@legitec.com.', 'error');
+        say(
+          error.message
+            ? `${error.message} Si el problema sigue, escríbenos a eperez@legitec.com.`
+            : 'No se pudo enviar. Vuelve a intentarlo o escríbenos a eperez@legitec.com.',
+          'error'
+        );
       }
     });
   }

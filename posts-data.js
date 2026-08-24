@@ -3,7 +3,7 @@
 const WS_POSTS = [
   {
     slug: 'nis2-2026-pymes',
-    img: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1450101499163.jpg',
     cat: 'Normativa',
     title: 'NIS2 ya es obligatoria: qué tiene que hacer tu pyme antes de octubre',
     excerpt: 'La directiva europea de ciberseguridad afecta a más de 100.000 empresas españolas. Te explicamos sin jerga quién está obligado, qué exige exactamente y por dónde empezar sin volverte loco.',
@@ -37,7 +37,7 @@ const WS_POSTS = [
       </ul>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1400&q=70" alt="Reunión de un comité de dirección" loading="lazy">
+        <img src="/uploads/blog/1573164574572.jpg" alt="Reunión de un comité de dirección" loading="lazy">
         <figcaption>El artículo 20 de NIS2 hace responsable directa a la dirección: los órganos de gobierno deben aprobar las medidas, supervisarlas y formarse en ciberseguridad.</figcaption>
       </figure>
 
@@ -71,7 +71,7 @@ const WS_POSTS = [
   },
   {
     slug: 'phishing-ia-deepfake-voz',
-    img: 'https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1523966211575.jpg',
     cat: 'Amenazas',
     title: 'Tu "CEO" te llama por teléfono: el fraude por voz clonada se dispara un 300%',
     excerpt: 'Los atacantes ya no necesitan escribir correos: con 30 segundos de audio público clonan la voz de un directivo y autorizan transferencias por teléfono. Así funciona el ataque y así se frena.',
@@ -97,7 +97,7 @@ const WS_POSTS = [
       </ol>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=1400&q=70" alt="Escritorio de oficina con teléfono y portátil" loading="lazy">
+        <img src="/uploads/blog/1587560699334.jpg" alt="Escritorio de oficina con teléfono y portátil" loading="lazy">
         <figcaption>El departamento financiero es el objetivo número uno: autoriza pagos y está entrenado para responder rápido a la dirección. Exactamente lo que el atacante explota.</figcaption>
       </figure>
 
@@ -125,7 +125,7 @@ const WS_POSTS = [
   },
   {
     slug: 'qr-phishing-quishing',
-    img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1512941937669.jpg',
     cat: 'Amenazas',
     title: 'Quishing: el código QR del parking puede vaciarte la cuenta',
     excerpt: 'Pegatinas falsas sobre códigos legítimos en parquímetros, cartas físicas con QR "del banco" y menús de restaurante manipulados. El phishing por QR crece porque salta los filtros del correo.',
@@ -147,7 +147,7 @@ const WS_POSTS = [
       <p>El truco más fino: al escanear con el móvil personal, la víctima <strong>sale del perímetro protegido de la empresa</strong>. El portátil corporativo tiene filtros, proxy y EDR; el móvil personal, normalmente nada.</p>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1400&q=70" alt="Persona introduciendo los datos de su tarjeta en un portátil" loading="lazy">
+        <img src="/uploads/blog/1563013544.jpg" alt="Persona introduciendo los datos de su tarjeta en un portátil" loading="lazy">
         <figcaption>El destino final del quishing casi siempre es el mismo: una web clonada que captura credenciales corporativas o datos de tarjeta.</figcaption>
       </figure>
 
@@ -176,7 +176,7 @@ const WS_POSTS = [
   },
   {
     slug: 'contrasenas-passkeys-2026',
-    img: 'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1614064641938.jpg',
     cat: 'Guías',
     title: 'Adiós a las contraseñas: guía práctica de passkeys para empresas',
     excerpt: 'Google, Microsoft y Apple ya permiten eliminar las contraseñas por completo. Explicamos qué son las passkeys, por qué son inmunes al phishing y cómo desplegarlas sin drama en tu organización.',
@@ -193,7 +193,7 @@ const WS_POSTS = [
       <p>Esto convierte a las passkeys en la única medida que elimina de raíz la categoría completa de ataques de robo de credenciales, en lugar de mitigarla.</p>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1400&q=70" alt="Pantalla de portátil con código en un entorno oscuro" loading="lazy">
+        <img src="/uploads/blog/1510511459019.jpg" alt="Pantalla de portátil con código en un entorno oscuro" loading="lazy">
         <figcaption>Miles de millones de contraseñas filtradas circulan en listas combinadas que alimentan ataques automatizados de credential stuffing. Las passkeys no aparecen en ninguna lista: no hay nada que filtrar.</figcaption>
       </figure>
 
@@ -232,7 +232,7 @@ const WS_POSTS = [
   },
   {
     slug: 'ransomware-backup-3-2-1',
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1558494949.jpg',
     cat: 'Guías',
     title: 'El ransomware no te perdonará un mal backup: la regla 3-2-1-1-0 explicada',
     excerpt: 'Pagar el rescate no garantiza recuperar nada — y en muchos casos es ilegal. La única defensa real es una estrategia de copias que el atacante no pueda cifrar. Te contamos la regla de oro actualizada.',
@@ -262,7 +262,7 @@ const WS_POSTS = [
       <p>El cuarto punto — la copia <strong>inmutable</strong> — es el que marca la diferencia en 2026. Si el atacante consigue credenciales de administrador (y el phishing se las dará), borrará todo lo que se pueda borrar. La inmutabilidad (object lock en S3, cintas offline, appliances WORM) es la única garantía que sobrevive a un administrador comprometido.</p>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1622151834677-70f982c9adef?auto=format&fit=crop&w=1400&q=70" alt="Técnico trabajando frente a un portátil de noche" loading="lazy">
+        <img src="/uploads/blog/1622151834677.jpg" alt="Técnico trabajando frente a un portátil de noche" loading="lazy">
         <figcaption>La diferencia entre una mala noche y el cierre del negocio se decide meses antes del incidente: en cómo diseñaste — y probaste — tus copias.</figcaption>
       </figure>
 
@@ -288,7 +288,7 @@ const WS_POSTS = [
   },
   {
     slug: 'teletrabajo-wifi-publica',
-    img: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1600&q=70',
+    img: '/uploads/blog/1521017432531.jpg',
     cat: 'Buenas prácticas',
     title: 'Teletrabajo seguro: lo que tu equipo hace mal en la cafetería (y cómo arreglarlo)',
     excerpt: 'Wifi abiertas, pantallas a la vista, portátiles desbloqueados y conversaciones de trabajo a volumen de conferencia. Una guía realista de seguridad para equipos híbridos, sin paranoia.',
@@ -310,7 +310,7 @@ const WS_POSTS = [
       </ul>
 
       <figure>
-        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=70" alt="Persona trabajando con su portátil en una cafetería" loading="lazy">
+        <img src="/uploads/blog/1554118811.jpg" alt="Persona trabajando con su portátil en una cafetería" loading="lazy">
         <figcaption>La oficina de hoy tiene camareros. Cada mesa de cafetería con un portátil corporativo abierto es una extensión del perímetro de tu empresa.</figcaption>
       </figure>
 
