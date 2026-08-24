@@ -45,8 +45,8 @@
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
 
   /* medidas */
-  --wrap: 1240px;
-  --gutter: 56px;
+  --wrap: 1440px;
+  --gutter: 48px;
   --radius-s: 10px;
   --radius-m: 16px;
   --radius-l: 18px;
@@ -335,15 +335,10 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   color: var(--amber);
 }
 
-.brand {
-  display: inline-flex;
-  align-items: baseline;
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-}
-.brand span { color: var(--amber); }
-.brand--light span { color: var(--amber-deep); }
+/* Logotipo oficial: en cabecera, pie y certificado siempre es la imagen. */
+.brand { display: inline-flex; align-items: center; }
+.brand img { height: 34px; width: auto; }
+.brand--footer img { height: 42px; }
 
 /* --------------------------------------------------------------------------
    5. Secciones
@@ -482,34 +477,36 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 .meter > i { display: block; height: 100%; border-radius: var(--radius-pill); background: var(--amber); }
 .meter > i.is-good { background: var(--green); }
 
-/* 5.3 Marquesina de clientes --------------------------------------------- */
+/* 5.3 Carrusel de clientes ---------------------------------------------- */
 .clients {
-  background: linear-gradient(180deg, var(--sand) 0, var(--sand) 60%, var(--surface) 100%);
-  padding: 30px 0 44px;
+  background: linear-gradient(180deg, var(--sand) 0, var(--sand) 62%, var(--surface) 100%);
+  padding: 34px 0 48px;
   overflow: hidden;
 }
-.clients__label {
+.clients__title {
   text-align: center;
-  margin-bottom: 18px;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.24em;
-  color: var(--fg-muted);
+  margin-bottom: 30px;
+  font-size: clamp(17px, 2.1vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
-.marquee { overflow: hidden; }
-.marquee__track {
+.clients__title em { font-style: normal; color: var(--amber-deep); }
+
+/* Los bordes se desvanecen con una máscara sobre el propio carrusel. */
+.logos {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.logos__track {
   display: flex;
+  align-items: center;
   width: max-content;
-  animation: slide 46s linear infinite;
+  animation: slide 44s linear infinite;
 }
-.marquee__track li {
-  padding-inline: 34px;
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  white-space: nowrap;
-  color: #78716c;
-}
+.logos:hover .logos__track { animation-play-state: paused; }
+.logos__track li { flex: 0 0 auto; margin-inline: 26px; }
+.logos__track img { height: 56px; width: 176px; object-fit: contain; }
 
 /* 5.4 Recorrido (Cómo trabajamos) ---------------------------------------- */
 .steps { position: relative; }
@@ -1190,12 +1187,16 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
    7. Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 1120px) {
-  :root { --gutter: 40px; }
+  :root { --gutter: 36px; }
   .steps::before { left: 12%; right: 12%; }
   .quotes::before, .quotes::after { width: 90px; }
+  .logos__track img { height: 48px; width: 152px; }
+  .logos__track li { margin-inline: 20px; }
 }
 
 @media (max-width: 960px) {
+  .brand img { height: 30px; }
+  .brand--footer img { height: 38px; }
   .nav__links { display: none; }
   .nav__toggle { display: inline-flex; }
   .nav__actions .btn { display: none; }
@@ -1261,7 +1262,9 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .cert { padding: 26px; }
   .cert__foot { flex-wrap: wrap; gap: 18px; }
   .footer__legal .wrap { flex-direction: column; align-items: flex-start; }
-  .clients__label { padding-inline: 20px; }
+  .clients__title { padding-inline: 20px; }
+  .logos__track img { height: 40px; width: 122px; }
+  .logos__track li { margin-inline: 14px; }
 }
 
 /* --------------------------------------------------------------------------
