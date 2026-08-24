@@ -1,0 +1,14 @@
+Testimonios en oscuro y vídeo de la píldora funcionando
+
+- Testimonios pasa a losa negra redondeada, como Simulaciones y
+  Certificados: tarjetas grafito con borde tenue, texto claro y el
+  carrusel sangrando hasta los bordes de la losa, con el degradado de
+  los extremos en negro.
+
+- El reproductor de la píldora vuelve a reproducir. En el rediseño se
+  había quedado como carátula decorativa; ahora es un botón con la
+  miniatura real del vídeo que, al pulsarlo, carga el reproductor de
+  YouTube. Hasta entonces la página no descarga nada de YouTube ni sus
+  cookies, y se usa el dominio sin seguimiento.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>

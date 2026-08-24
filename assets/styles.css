@@ -736,12 +736,21 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
 .learn { display: grid; grid-template-columns: 1.06fr 0.94fr; gap: 20px; align-items: stretch; }
 .player {
   position: relative;
-  height: 316px;
-  background: radial-gradient(620px 280px at 50% 40%, #212226, var(--ink) 76%);
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 316px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background:
+    linear-gradient(rgba(10, 10, 11, 0.34), rgba(10, 10, 11, 0.5)),
+    radial-gradient(620px 280px at 50% 40%, #212226, var(--ink) 76%);
+  background-size: cover;
+  background-position: center;
 }
+.player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .player__tag {
   position: absolute;
   top: 18px; left: 18px;
@@ -974,8 +983,11 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   z-index: 2;
   pointer-events: none;
 }
-.quotes::before { left: 0; background: linear-gradient(to right, var(--sand) 12%, rgba(250, 250, 249, 0)); }
-.quotes::after { right: 0; background: linear-gradient(to left, var(--sand) 12%, rgba(250, 250, 249, 0)); }
+.quotes::before { left: 0; background: linear-gradient(to right, var(--ink) 12%, rgba(10, 10, 11, 0)); }
+.quotes::after { right: 0; background: linear-gradient(to left, var(--ink) 12%, rgba(10, 10, 11, 0)); }
+
+/* El carrusel sangra hasta los bordes redondeados de la losa. */
+.slab .quotes { margin-inline: calc(var(--gutter) * -1); }
 .quotes__track {
   display: flex;
   width: max-content;
@@ -991,25 +1003,27 @@ h4 { font-weight: 600; letter-spacing: -0.018em; }
   flex-direction: column;
   gap: 20px;
   padding: 30px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink-line);
   border-radius: var(--radius-l);
-  background: var(--surface);
-  box-shadow: var(--shadow-rest);
+  background: var(--ink-soft);
+  transition: border-color 0.3s;
 }
-.quote blockquote { font-size: 15px; line-height: 1.68; color: var(--fg-strong); flex: 1; }
+.quote:hover { border-color: rgba(255, 255, 255, 0.22); }
+.quote blockquote { font-size: 15px; line-height: 1.68; color: rgba(245, 245, 245, 0.88); flex: 1; }
 .quote figcaption {
   display: flex;
   align-items: center;
   gap: 12px;
   padding-top: 20px;
-  border-top: 1px solid var(--line-3);
+  border-top: 1px solid var(--ink-line);
+  color: var(--ink-fg);
 }
 .quote__avatar {
   flex: 0 0 auto;
   width: 38px; height: 38px;
   border-radius: var(--radius-pill);
-  background: var(--amber-soft);
-  color: var(--amber-deep);
+  background: rgba(245, 166, 35, 0.12);
+  color: var(--amber);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1222,6 +1236,7 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
   .section, .section--sand, .contact { padding-block: 64px; }
   .slab-wrap { padding-block: 64px 0; }
   .slab { padding: 56px 28px; border-radius: 22px; }
+  .slab .quotes { margin-inline: -28px; }
 
   .head { grid-template-columns: 1fr; gap: 20px; align-items: start; margin-bottom: 32px; }
   .head__lead { max-width: none; }

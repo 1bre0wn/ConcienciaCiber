@@ -83,6 +83,23 @@
     setTimeout(revealAll, 5000);
   }
 
+  /* --- Reproductor de la píldora ----------------------------------------
+     La carátula es un botón: hasta que no se pulsa no se carga nada de
+     YouTube, así que la página no arrastra su peso ni sus cookies. */
+  document.querySelectorAll('[data-video]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const id = button.dataset.video;
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      frame.title = 'Píldora formativa: cómo reconocer un correo de phishing';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      button.replaceChildren(frame);
+      button.style.cursor = 'default';
+      button.disabled = true;
+    });
+  });
+
   /* --- Formulario de contacto ------------------------------------------- */
   const form = document.getElementById('form-demo');
 
